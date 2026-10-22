@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "title": "raqamli-muloqot-frontend",
+    "name": "Raqamli Muloqot Platformasi",
+    "type": "Video Majlis & Real-Time",
+    "category": "realtime",
+    "desc": "Davlat va idoralararo onlayn yig'ilishlar platformasi. Raqamli Passport orqali kirish (RBAC: Admin va Xodim). 0ms LiveKit video uchrashuvlar, jonli chat, WebSocket push-xabarnomalar, majlis yakunida elektron imzo (tasdiqlash) va ko'p bosqichli formalar.",
+    "tags": ["LiveKit WebRTC", "WebSocket", "React Query", "Axios Interceptor", "React Hook Form", "Raqamli Passport (RBAC)"],
+    "link": "#",
+    "status": "completed",
+    "i18n": {
+      "uz": {
+        "title": "Raqamli Muloqot Platformasi",
+        "type": "Video Majlis & Real-Time",
+        "desc": "Davlat va idoralararo onlayn uchrashuvlar va majlislarni tashkil qilish platformasi. Rahbarlar va xodimlar uchun Raqamli Passport orqali Granular RBAC rollari. LiveKit orqali 0ms kechikishdagi video-majlislar va chat, WebSocket jonli bildirishnomalar hamda majlis yakunida ishtirokchilar tomonidan imzo qo'yish tizimi."
+      },
+      "en": {
+        "title": "Raqamli Muloqot — Gov Meeting Platform",
+        "type": "Video Majlis & Real-Time",
+        "desc": "Inter-agency government online conference and meeting platform. Secure authentication via \"Raqamli Passport\" with strict RBAC (Admin/Participant). 0ms latency video meetings and built-in chat via LiveKit, instant WebSocket push notifications, digital participant signing, and React Hook Form validation."
+      },
+      "ru": {
+        "title": "Платформа «Raqamli Muloqot»",
+        "type": "Video Majlis & Real-Time",
+        "desc": "Платформа для проведения межведомственных правительственных совещаний. Вход через «Raqamli Passport» с ролевой моделью RBAC. Видеоконференции и чат с задержкой 0мс через LiveKit, WebSocket push-уведомления и подписание протоколов участниками."
+      }
+    }
+  },
+  {
+    "id": 2,
+    "title": "conver-frontend",
+    "name": "Conver — Logistika & Ombor CRM",
+    "type": "Logistika & CRM Tizimi",
+    "category": "crm",
+    "desc": "Yuk yetkazib berish va logistika kompaniyalari uchun CRM tizimi. Turli liniyalar va omborlar boshqaruvi, tovarlar kirim-chiqim hisobi, har bir filial va tashkilot kesimidagi hisobotlarni Excel/PDF/CSV eksport qilish hamda Superadmin orqali dinamik rollar va ruxsatlar boshqaruvi.",
+    "tags": ["React.js", "TypeScript", "Dinamik RBAC", "Excel/PDF/CSV", "TanStack Query", "Ant Design"],
+    "link": "#",
+    "status": "completed",
+    "i18n": {
+      "uz": {
+        "title": "Conver — Logistika & Ombor CRM",
+        "type": "Logistika & CRM Tizimi",
+        "desc": "Yuk yetkazish kompaniyalari uchun CRM tizimi: liniyalar boshqaruvi, omborlar, tovar kirim-chiqimi va har bir filial uchun alohida hisobotlar. Dinamik RBAC arxitekturasi — Admin tomonidan yangi rollar yaratish va har bir harakat/sahifaga maxsus ruxsatlar biriktirish hamda Excel/PDF/CSV eksport."
+      },
+      "en": {
+        "title": "Conver — Logistics & Warehouse CRM",
+        "type": "Logistics & CRM System",
+        "desc": "Freight forwarding and logistics CRM: manage transit routes, warehouse inventory, stock inbound/outbound movements, and branch-level analytics. Dynamic RBAC with custom role creation and granular action-level permissions, plus automated Excel/PDF/CSV reporting."
+      },
+      "ru": {
+        "title": "Conver — Логистическая CRM и складской учет",
+        "type": "Logistics & CRM System",
+        "desc": "CRM для логистических компаний: управление грузоперевозками, складами, учетом поступлений и отгрузок. Динамический RBAC с созданием произвольных ролей и детальными правами доступа, экспорт отчетов в Excel/PDF/CSV."
+      }
+    }
+  },
+  {
+    "id": 3,
+    "title": "dc-management-frontend",
+    "name": "Raqamli boshqaruv",
+    "type": "Task Management & KPI",
+    "category": "crm",
+    "desc": "Masofaviy ishlovchi xodimlarni boshqarish, tasklarga KPI pullari va jarimalar qo'llash, oyning 4-kuni maosh hisoblash, ichki xavfsiz audio/video yig'ilishlar, real-vaqt harakatlar tarixi va har bir xodim uchun shaxsiy natijalar dashboardi.",
+    "tags": ["React Query Polling", "WebSocket", "Debounce Search", "KPI Hisob-kitob", "Excel/PDF/CSV", "Real-Time"],
+    "link": "#",
+    "status": "completed",
+    "i18n": {
+      "uz": {
+        "title": "Raqamli boshqaruv",
+        "type": "Task Management & KPI",
+        "desc": "Onlayn xodimlarni boshqarish va vazifalar tizimi: KPI rag'batlantirish va jarimalar, oylik maoshni avtomatik hisoblash, tizim ichida maxfiy yig'ilishlar o'tkazish, har bir harakat auditi hamda React Query polling va WebSocket bilan jonli yangilanishlar."
+      },
+      "en": {
+        "title": "Raqamli boshqaruv — Task & KPI Platform",
+        "type": "Task Management & KPI",
+        "desc": "Remote workforce management: task delegation with automated KPI bonuses and penalties, monthly payroll calculation on the 4th, secure in-app meetings, audit logs, and debounced filtering with React Query polling + WebSocket updates."
+      },
+      "ru": {
+        "title": "Raqamli boshqaruv — Управление задачами и KPI",
+        "type": "Task Management & KPI",
+        "desc": "Система для онлайн-управления персоналом: распределение задач с начислением KPI и штрафов, автоматический расчет зарплаты, встроенные конфиденциальные звонки, аудит действий и WebSocket-уведомления."
+      }
+    }
+  },
+  {
+    "id": 4,
+    "title": "hgt-attendance-frontend",
+    "name": "HGT davomat",
+    "type": "HR Monitoring & Davomat",
+    "category": "monitoring",
+    "desc": "Turniket va Face ID qurilmalari bilan integratsiyalashgan xodimlar davomati va ish vaqti monitoringi. Xodim o'tganda sahifani yangilamasdan jonli yashil rang bilan belgilash (WebSocket), oylik tabel hisobi, virtual scroll katta jadvallari va avtomatik buxgalteriya hisoboti.",
+    "tags": ["WebSocket Jonli Ulanish", "Virtual Scroll", "useMemo Optimizatsiya", "Face ID / Turniket", "Excel/PDF Export"],
+    "link": "#",
+    "status": "completed",
+    "i18n": {
+      "uz": {
+        "title": "HGT davomat",
+        "type": "HR Monitoring & Davomat",
+        "desc": "Tashkilot xodimlarining ishga kelib-ketish davomati va kechikishlarini monitoring qilish. Face ID yoki turniketdan o'tganda WebSocket orqali jadvalda sahifani yangilamasdan jonli yashil aks ettirish, oylik tabel va useMemo + Virtual scroll yordamida tezyurar jadvallar."
+      },
+      "en": {
+        "title": "HGT davomat — Turnstile & Face ID System",
+        "type": "HR Monitoring & Attendance",
+        "desc": "Employee attendance and timesheet monitoring synced with turnstiles and Face ID cameras. Real-time instant status updates via WebSockets without page reload, virtualized monthly timesheets (tabel), and automated Excel/PDF payroll export."
+      },
+      "ru": {
+        "title": "HGT davomat — Учет рабочего времени и Face ID",
+        "type": "HR Monitoring & Attendance",
+        "desc": "Мониторинг посещаемости сотрудников, синхронизированный с турникетами и Face ID. Мгновенная подсветка статуса через WebSocket без перезагрузки, оптимизация табелей через Virtual Scroll и useMemo, экспорт в Excel/PDF."
+      }
+    }
+  },
+  {
+    "id": 5,
+    "title": "raqamli-sovchi-frontend",
+    "name": "Raqamli Sovchi Platformasi",
+    "type": "Step Wizard & Formalar",
+    "category": "forms",
+    "desc": "Anketalarni to'plash, moslik darajasini aniqlash va mutaxassislar ishini muvofiqlashtirish platformasi. 4–5 qadamdan iborat Step Wizard, brauzerda rasmlarni siqish (Image Compression), qoralamalarni localStorageda saqlash, React Hook Form + Zod qat'iy tekshiruvi va mos nomzod topilganda WebSocket xabarnomalari.",
+    "tags": ["React Hook Form", "Zod Validatsiya", "Brauzerda Rasm Siqish", "Step Wizard", "WebSocket", "localStorage Cache"],
+    "link": "#",
+    "status": "completed",
+    "i18n": {
+      "uz": {
+        "title": "Raqamli Sovchi Platformasi",
+        "type": "Step Wizard & Formalar",
+        "desc": "Oila qurish anketalarini to'plash va moslikni aniqlash platformasi: moderatorlar uchun ko'p parametrli filtrlar, foydalanuvchilar uchun 4-5 bosqichli Step Wizard, brauzerda rasmlarni siqib yuklash, qoralamani saqlash va React Hook Form + Zod arxitekturasi."
+      },
+      "en": {
+        "title": "Raqamli Sovchi — Matchmaking & Wizard Platform",
+        "type": "Step Wizard & Forms",
+        "desc": "Questionnaire collection and profile matching service. Multi-step form wizard (4-5 steps) powered by React Hook Form + Zod, browser-side image compression, local draft auto-saving, and real-time candidate notifications via WebSockets."
+      },
+      "ru": {
+        "title": "Платформа «Raqamli Sovchi»",
+        "type": "Step Wizard & Forms",
+        "desc": "Сервис подбора анкет: многошаговый мастер регистрации (Step Wizard) на React Hook Form + Zod, сжатие изображений в браузере на клиенте, сохранение черновиков в localStorage и WebSocket-уведомления."
+      }
+    }
+  },
+  {
+    "id": 6,
+    "title": "si-assistent-frontend",
+    "name": "SI Assistent — LLM AI Streaming Platformasi",
+    "type": "Sun'iy Intellekt & LLM",
+    "category": "ai",
+    "desc": "Katta til modellari (LLM) asosidagi korporativ sun'iy intellekt yordamchisi. Me'yoriy PDF, Word va Excel hujjatlarni yuklash (drag-and-drop), ChatGPT kabi so'zma-so'z oqimli (SSE / ReadableStream) javob berish, markdown sintaksisi va tokenlar sarfi monitoringi.",
+    "tags": ["AI Streaming (SSE)", "ReadableStream", "LLM Prompting", "Drag & Drop PDF/Doc", "Markdown Syntax Highlighting"],
+    "link": "#",
+    "status": "completed",
+    "i18n": {
+      "uz": {
+        "title": "SI Assistent — LLM AI Streaming Platformasi",
+        "type": "Sun'iy Intellekt & LLM",
+        "desc": "Korxona xodimlari uchun LLM asosidagi ichki yordamchi platforma: me'yoriy hujjatlardan tezkor javob topish, PDF/Word/Excel fayllarni tahlil qilish, SSE (Server-Sent Events) orqali matnni oqimli (streaming) chiqarish va suhbatlar tarixini keshlab borish."
+      },
+      "en": {
+        "title": "SI Assistent — Enterprise LLM & AI Streaming",
+        "type": "Artificial Intelligence & LLM",
+        "desc": "Corporate AI assistant built on LLM architectures. Drag-and-drop ingestion of PDF/Word/Excel regulatory documentation, ChatGPT-like word-by-word streaming responses via SSE (Fetch ReadableStream), markdown syntax highlighting, and token usage analytics."
+      },
+      "ru": {
+        "title": "ИИ-Ассистент — Корпоративный LLM и AI-стриминг",
+        "type": "Artificial Intelligence & LLM",
+        "desc": "Корпоративный ИИ-помощник на базе LLM: быстрый поиск ответов по нормативным PDF/Word/Excel документам, потоковая выдача ответов (SSE / ReadableStream), подсветка синтаксиса и аналитика токенов."
+      }
+    }
+  },
+  {
+    "id": 7,
+    "title": "unusual-consumption-frontend",
+    "name": "noodatiy istemol",
+    "type": "Monitoring & Xarita Tahlili",
+    "category": "monitoring",
+    "desc": "Gaz sarfidagi me'yordan ortiq yoki noqonuniy iste'mol holatlarini aniqlash tizimi. O'zbekiston xaritasida qizil zonalar va klasterlar, 15+ ustunli murakkab qiyosiy tahlil jadvallari, ovozli va vizual jonli ogohlantirishlar (WebSocket Alert) hamda joyiga chiqib tekshirish aktlarini PDF qilish.",
+    "tags": ["Interaktiv Xarita", "15+ Ustunli Jadvallar", "WebSocket Alert", "PDF Akt Generatsiya", "Rasm Siqish", "Pagination Caching"],
+    "link": "#",
+    "status": "completed",
+    "i18n": {
+      "uz": {
+        "title": "noodatiy istemol",
+        "type": "Monitoring & Xarita Tahlili",
+        "desc": "Gaz sarfidagi shubhali va noqonuniy iste'mol (anomaliya) monitoringi. Respublika va viloyat inspektorlari uchun interaktiv xarita, 15+ ustunli tahlil jadvallari, yangi noqonuniy holat aniqlanganda ovozli va vizual WebSocket ogohlantirishlar va dalolatnoma rasmlarini siqib yuklash."
+      },
+      "en": {
+        "title": "noodatiy istemol — Anomaly Monitoring & Map",
+        "type": "Monitoring & Map Analytics",
+        "desc": "Utility gas anomaly detection system. Interactive GIS map showing high-risk clusters, 15+ column comparative analytical tables, audible & visual real-time WebSocket alerts upon anomaly detection, and automated PDF inspection reports with compressed photos."
+      },
+      "ru": {
+        "title": "noodatiy istemol — Мониторинг аномалий и карта",
+        "type": "Monitoring & Map Analytics",
+        "desc": "Система мониторинга аномального и несанкционированного расхода газа: интерактивная карта с зонами риска, аналитические таблицы на 15+ колонок, звуковые и визуальные оповещения через WebSocket и генерация актов проверок в PDF."
+      }
+    }
+  },
+  {
+    "id": 8,
+    "title": "gilam-erp-frontend",
+    "name": "Gilam ERP — Ishlab Chiqarish & Ombor Tizimi",
+    "type": "ERP & Ishlab Chiqarish",
+    "category": "erp",
+    "desc": "Gilam ishlab chiqarish va sotish fabrikasi uchun ichki ERP tizimi. Sex ustalari, omborchilar va rahbariyat uchun sex/ombor qoldig'i, metraj va tannarx hisob-kitoblari bo'yicha 15+ ustunli jadvallar, Virtual Scroll, dinamik formulali custom hooklar va Excel/PDF/CSV generatsiyasi.",
+    "tags": ["Virtual Scroll", "15+ Ustunli Jadvallar", "Dinamik Formulalar", "Excel/PDF/CSV", "React Query Caching", "Jarayonda (In Progress)"],
+    "link": "#",
+    "status": "in_progress",
+    "i18n": {
+      "uz": {
+        "title": "Gilam ERP — Ishlab Chiqarish & Ombor Tizimi",
+        "type": "ERP & Ishlab Chiqarish",
+        "desc": "Gilam fabrikasi uchun ichki ERP tizimi: sex metrajlari, tannarx va hisob-kitoblar bo'yicha 15+ ustunli murakkab jadvallar. Ombor qoldiqlari balansi, oylik dinamika grafigi, Excel/PDF/CSV eksport va Virtual Scroll optimizatsiyasi (Hozirda ishlab chiqish jarayonida)."
+      },
+      "en": {
+        "title": "Gilam ERP — Manufacturing & Warehouse Suite",
+        "type": "Manufacturing ERP",
+        "desc": "Internal ERP system for a textile & carpet manufacturing facility: 15+ column production tables, dynamic batch pricing formulas, real-time inventory updates, and Excel/PDF/CSV export with Virtual Scroll (Currently in active development)."
+      },
+      "ru": {
+        "title": "Gilam ERP — Производство и складской учет",
+        "type": "Manufacturing ERP",
+        "desc": "ERP-система для ковровой фабрики: сложные таблицы на 15+ колонок для расчета метража и себестоимости, динамические формулы партий, баланс складов и Virtual Scroll (в процессе активной разработки)."
+      }
+    }
+  },
+  {
+    "id": 9,
+    "title": "erp-frontend",
+    "name": "Enterprise ERP — Korxona Moliya & HR Tizimi",
+    "type": "Keng Ko'lamli ERP",
+    "category": "erp",
+    "desc": "Korxonaning moliya, kadrlar, xaridlar va ichki aylanmalarini bitta joyda jamlagan keng ko'lamli ERP platformasi. OneID orqali kirish, ko'p tarmoqli RBAC (Admin, Moliyachi, HR, Xaridlar), 10–15 ustunli AntD jadvallari, ko'p qadamli talabnomalar, shartnomalarni PDF ko'rish va WebSocket xabarnomalari.",
+    "tags": ["OneID / Korporativ Login", "Ant Design", "Ko'p qadamli Form Wizard", "WebSocket Alerts", "Axios Interceptors", "Jarayonda (In Progress)"],
+    "link": "#",
+    "status": "in_progress",
+    "i18n": {
+      "uz": {
+        "title": "Enterprise ERP — Korxona Moliya & HR Tizimi",
+        "type": "Keng Ko'lamli ERP",
+        "desc": "Korxonaning umumiy faoliyati — moliya, kadrlar, xaridlar va ichki aylanmalarini boshqaruvchi keng ko'lamli ERP tizimi. OneID va login-parol, 10-15 ustunli AntD jadvallari, shartnomalar va aktlar generatsiyasi hamda bo'limlar kesimidagi real-vaqt statistika (Jarayonda)."
+      },
+      "en": {
+        "title": "Enterprise ERP — Finance & HR Ecosystem",
+        "type": "Enterprise ERP",
+        "desc": "Comprehensive enterprise ERP handling finances, procurement, HR, and document approval flows. Features OneID integration, multi-role RBAC, 10-15 column AntD data tables, multi-step purchase requests, and real-time approval alerts (In active development)."
+      },
+      "ru": {
+        "title": "Enterprise ERP — Финансы, закупки и кадры",
+        "type": "Enterprise ERP",
+        "desc": "Масштабная ERP-платформа предприятия: финансы, закупки, кадры и внутренний документооборот. Интеграция с OneID, многоуровневый RBAC, 10-15 колоночные таблицы Ant Design и согласование документов в реальном времени (в разработке)."
+      }
+    }
+  },
+  {
+    "id": 10,
+    "title": "m-gaz-frontend",
+    "name": "M-Gaz — Hududiy Gaz & E-Imzo Tizimi",
+    "type": "E-Imzo & Energetika Tizimi",
+    "category": "security",
+    "desc": "Hududiy gaz hisob-kitoblari va shoxobchalar faoliyatini nazorat qiluvchi platforma. Brauzer E-Imzo kaliti va kaskadli filtrlash orqali kirish, kunlik gaz limitlari va qoldiqlari bo'yicha jadvallar, dalolatnomalarni raqamli imzolash va PDF generatsiya qilish hamda O'zbekiston xaritasi diagrammalari.",
+    "tags": ["E-Imzo Kripto Moduli", "Hududiy Kaskadli Select", "PDF Dalolatnomalar", "401/403 Interceptors", "WebSocket Alerts", "Jarayonda (In Progress)"],
+    "link": "#",
+    "status": "in_progress",
+    "i18n": {
+      "uz": {
+        "title": "M-Gaz — Hududiy Gaz & E-Imzo Tizimi",
+        "type": "E-Imzo & Energetika Tizimi",
+        "desc": "Hududiy gaz hisob-kitoblarini nazorat qiluvchi platforma: E-Imzo brauzer moduli orqali dalolatnomalarni xesh olish va elektron imzolash, shoxobchalar bo'yicha murakkab jadvallar, O'zbekiston xaritasi diagrammalari va viloyat -> tuman kaskadli filtrlash (Jarayonda)."
+      },
+      "en": {
+        "title": "M-Gaz — Regional Gas Billing & E-Imzo Signing",
+        "type": "Energy & E-Imzo Crypto",
+        "desc": "Regional natural gas quota monitoring and billing system. Browser-level E-Imzo cryptographic module integration for hash-signing inspection protocols, cascading regional filters, and interactive SVG Uzbekistan map diagrams (In active development)."
+      },
+      "ru": {
+        "title": "M-Gaz — Учет газа и электронная подпись E-Imzo",
+        "type": "Energy & E-Imzo Crypto",
+        "desc": "Система учета и контроля расхода природного газа: подписание протоколов через криптографический браузерный модуль E-Imzo, каскадная фильтрация регион -> район, таблицы лимитов и интерактивная карта (в разработке)."
+      }
+    }
+  }
+]

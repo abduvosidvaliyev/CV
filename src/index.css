@@ -1,0 +1,179 @@
+@import "./azimjon.css";
+
+/* Core design tokens matching azimjondev.uz */
+:root {
+  color-scheme: dark;
+  --bg: #0a0c10;
+  --bg-deep: #07080b;
+  --bg-elev: #0e1116;
+  --surface: rgba(255, 255, 255, 0.025);
+  --surface-2: rgba(255, 255, 255, 0.05);
+  --surface-3: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-accent: rgba(190, 242, 100, 0.35);
+  --text: #e9edf3;
+  --text-dim: #9aa5b5;
+  --text-faint: #626c7c;
+  --accent: #bef264;
+  --accent-strong: #d3ff7a;
+  --accent-ink: #131a05;
+  --accent-dim: rgba(190, 242, 100, 0.12);
+  --accent-glow: rgba(190, 242, 100, 0.25);
+  --steel: #7da2ce;
+  --steel-dim: rgba(125, 162, 206, 0.12);
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --danger: #f87171;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --container: 75rem;
+  --nav-height: 4.5rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.44, 1);
+  --dur: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(190, 242, 100, 0.25);
+  color: #ffffff;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  outline: none;
+  transition: all var(--dur) var(--ease-out);
+}
+
+.btnAccent {
+  background: var(--accent);
+  color: #0a0c10;
+  box-shadow: 0 0 24px rgba(190, 242, 100, 0.35);
+}
+
+.btnAccent:hover {
+  background: var(--accent-strong);
+  box-shadow: 0 0 36px rgba(190, 242, 100, 0.6);
+  color: #000;
+}
+
+.btnGhost {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btnGhost:hover {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+  color: #fff;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  70% { box-shadow: 0 0 0 9px rgba(190, 242, 100, 0); }
+  100% { box-shadow: 0 0 rgba(190, 242, 100, 0); }
+}
+
+@keyframes driftA {
+  0% { transform: translate(0); }
+  100% { transform: translate(-60px, 50px); }
+}
+
+@keyframes driftB {
+  0% { transform: translate(0); }
+  100% { transform: translate(70px, -40px); }
+}
+
+@keyframes corePulse {
+  0% { opacity: 0.75; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.25; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes scrollPulse {
+  0% { transform: scaleY(0); opacity: 0; }
+  35% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1) translateY(10px); opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

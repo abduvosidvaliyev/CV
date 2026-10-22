@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1">
+     <title>Valiyev Abduvosid — Frontend Developer</title>
+     <style>
+          * {
+               box-sizing: border-box;
+               margin: 0;
+               padding: 0;
+               -webkit-print-color-adjust: exact;
+               print-color-adjust: exact
+          }
+
+          :root {
+               --n: #0f172a;
+               --i: #1e1b4b;
+               --b: #2563eb;
+               --e: #059669;
+               --t: #1e293b;
+               --m: #64748b;
+               --l: #f1f5f9;
+               --bd: #e2e8f0
+          }
+
+          body {
+               font-family: Inter, Segoe UI, Arial, sans-serif;
+               background: #cbd5e1;
+               color: var(--t);
+               font-size: 10.5px;
+               line-height: 1.45
+          }
+
+          .bar {
+               text-align: center;
+               padding: 10px
+          }
+
+          .bar button {
+               background: var(--b);
+               color: #fff;
+               border: 0;
+               padding: 9px 22px;
+               border-radius: 8px;
+               font-weight: 700;
+               cursor: pointer;
+               font-size: 13px
+          }
+
+          .cv {
+               max-width: 794px;
+               margin: 0 auto 20px;
+               background: #fff
+          }
+
+          header {
+               background: linear-gradient(135deg, var(--n), var(--i));
+               color: #fff;
+               padding: 26px 32px
+          }
+
+          h1 {
+               font-size: 30px;
+               letter-spacing: 2px;
+               font-weight: 800
+          }
+
+          .role {
+               color: #6ee7b7;
+               font-weight: 600;
+               font-size: 13px;
+               margin: 4px 0 12px
+          }
+
+          .ct {
+               display: flex;
+               flex-wrap: wrap;
+               gap: 6px 18px;
+               font-size: 10.5px;
+               color: #cbd5e1
+          }
+
+          .ct a {
+               color: #fff;
+               text-decoration: none
+          }
+
+          .ct svg {
+               width: 12px;
+               height: 12px;
+               vertical-align: -2px;
+               margin-right: 4px;
+               stroke: #6ee7b7;
+               fill: none;
+               stroke-width: 2
+          }
+
+          main {
+               padding: 18px 32px 8px
+          }
+
+          h2 {
+               font-size: 12px;
+               letter-spacing: 1.5px;
+               text-transform: uppercase;
+               color: var(--n);
+               border-bottom: 2px solid var(--b);
+               padding-bottom: 3px;
+               margin: 14px 0 8px;
+               display: flex;
+               align-items: center;
+               gap: 6px
+          }
+
+          h2:before {
+               content: "";
+               width: 8px;
+               height: 8px;
+               background: var(--e);
+               border-radius: 2px
+          }
+
+          .sum {
+               background: var(--l);
+               border-left: 3px solid var(--e);
+               padding: 8px 12px;
+               border-radius: 0 6px 6px 0
+          }
+
+          .sum ul {
+               margin: 4px 0 0 16px
+          }
+
+          .sk {
+               display: grid;
+               grid-template-columns: 130px 1fr;
+               gap: 6px 10px;
+               align-items: start
+          }
+
+          .sk b {
+               color: var(--b);
+               font-size: 10px;
+               padding-top: 2px
+          }
+
+          .tg {
+               display: flex;
+               flex-wrap: wrap;
+               gap: 3px
+          }
+
+          .p {
+               display: inline-block;
+               font-size: 9px;
+               padding: 1px 8px;
+               border-radius: 99px;
+               background: #eff6ff;
+               color: #1d4ed8;
+               border: 1px solid #bfdbfe;
+               font-weight: 600
+          }
+
+          .p.g {
+               background: #ecfdf5;
+               color: #047857;
+               border-color: #a7f3d0
+          }
+
+          .job {
+               display: flex;
+               justify-content: space-between;
+               align-items: baseline;
+               gap: 10px
+          }
+
+          .job h3 {
+               font-size: 13px;
+               color: var(--n)
+          }
+
+          .dt {
+               color: var(--m);
+               font-size: 10px;
+               font-weight: 600;
+               white-space: nowrap
+          }
+
+          .note {
+               color: var(--m);
+               font-style: italic;
+               margin: 3px 0 8px
+          }
+
+          .pr {
+               border-left: 3px solid var(--b);
+               background: #fafbff;
+               border-radius: 0 8px 8px 0;
+               padding: 8px 12px;
+               margin-bottom: 9px;
+               break-inside: avoid;
+               border-top: 1px solid var(--bd);
+               border-right: 1px solid var(--bd);
+               border-bottom: 1px solid var(--bd)
+          }
+
+          .pr:nth-child(even) {
+               border-left-color: var(--e)
+          }
+
+          .ph {
+               display: flex;
+               justify-content: space-between;
+               gap: 8px;
+               align-items: flex-start
+          }
+
+          .pr h4 {
+               font-size: 11.5px;
+               color: var(--n)
+          }
+
+          .pr h4 code {
+               font-size: 9px;
+               color: var(--m);
+               font-weight: 400
+          }
+
+          .nda {
+               font-size: 8.5px;
+               background: var(--n);
+               color: #fff;
+               padding: 2px 7px;
+               border-radius: 99px;
+               white-space: nowrap
+          }
+
+          .goal {
+               color: var(--m);
+               margin: 2px 0 4px
+          }
+
+          .pr ul {
+               margin-left: 14px
+          }
+
+          .pr li {
+               margin-bottom: 2px
+          }
+
+          .tg.t {
+               margin-top: 5px
+          }
+
+          .two {
+               display: grid;
+               grid-template-columns: 1fr 1fr;
+               gap: 16px
+          }
+
+          footer {
+               margin: 10px 32px 0;
+               padding: 8px 0 16px;
+               border-top: 1px solid var(--bd);
+               font-size: 8.5px;
+               color: var(--m);
+               font-style: italic
+          }
+
+          @media print {
+               body {
+                    background: #fff
+               }
+
+               .bar {
+                    display: none
+               }
+
+               .cv {
+                    margin: 0;
+                    max-width: none
+               }
+
+               @page {
+                    size: A4;
+                    margin: 0
+               }
+
+               main {
+                    padding-top: 14px
+               }
+          }
+     </style>
+</head>
+
+<body>
+     <div class="bar"><button onclick="window.print()">PDF yuklab olish</button></div>
+     <div class="cv">
+          <header>
+               <h1>VALIYEV ABDUVOSID</h1>
+               <div class="role">Frontend dasturchisi (React / TypeScript / Next.js) — Junior+ / Middle</div>
+               <div class="ct">
+                    <span><svg viewBox="0 0 24 24">
+                              <path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z" />
+                              <circle cx="12" cy="10" r="2.5" />
+                         </svg>Qo'qon shahri</span>
+                    <span><svg viewBox="0 0 24 24">
+                              <path
+                                   d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" />
+                         </svg>+998 94 490 09 15</span>
+                    <span><svg viewBox="0 0 24 24">
+                              <path d="M21 3L3 11l6 2 2 6 3-4 5 4z" />
+                         </svg><a href="https://t.me/Valiyev_0915">@Valiyev_0915</a></span>
+                    <span><svg viewBox="0 0 24 24">
+                              <path
+                                   d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 00-1-2.6c3.1-.4 6.4-1.5 6.4-7A5.4 5.4 0 0020 4.8 5 5 0 0019.9 1S18.7.7 16 2.5a13.4 13.4 0 00-7 0C6.3.7 5.1 1 5.1 1A5 5 0 005 4.8 5.4 5.4 0 003.6 8.5c0 5.4 3.3 6.5 6.4 7a3.4 3.4 0 00-1 2.6V22" />
+                         </svg><a href="https://github.com/abduvosidvaliyev">github.com/abduvosidvaliyev</a></span>
+               </div>
+          </header>
+          <main>
+               <h2>Profil haqida</h2>
+               <div class="sum">1.5+ yillik intensiv amaliy tajribaga ega Frontend dasturchi. Davlat xizmatlari va yirik
+                    korporativ sektor uchun real vaqtda ishlovchi murakkab ERP, CRM, HR-monitoring va analitik
+                    platformalarni noldan ishlab chiqishda katta tajribaga ega.
+                    <b>Asosiy kuchli tomonlarim:</b>
+                    <ul>
+                         <li>Yuqori yuklamali (15+ ustunli) katta jadvallar va ularni <b>Virtual Scroll</b> /
+                              <b>useMemo</b> orqali optimallashtirish;
+                         </li>
+                         <li>Ko'p darajali va dinamik ruxsatlar tizimi (<b>Granular RBAC</b>) arxitekturasi;</li>
+                         <li>Davlat kriptografik tizimlari bilan
+                              to'liq integratsiya;</li>
+                         <li>Real-vaqt protokollari (<b>WebSockets</b>, <b>LiveKit WebRTC</b>, <b>SSE / AI
+                                   Streaming</b>) bilan ishlash.</li>
+                    </ul>
+               </div>
+
+               <h2>Texnik ko'nikmalar</h2>
+               <div class="sk">
+                    <b>Core & Frameworks</b>
+                    <div class="tg"><span class="p">JavaScript (ES6+)</span><span class="p">TypeScript</span><span
+                              class="p">React.js</span><span class="p">Next.js</span><span class="p">HTML5</span><span
+                              class="p">CSS3</span></div>
+                    <b>State & Data Fetching</b>
+                    <div class="tg"><span class="p">TanStack Query (Caching, Polling, Optimistic Updates)</span><span
+                              class="p">Redux Toolkit</span><span class="p">REST API</span><span class="p">Axios
+                              (Interceptors, Auto Refresh Token)</span><span class="p">Fetch ReadableStream (SSE)</span>
+                    </div>
+                    <b>Real-Time & Integratsiyalar</b>
+                    <div class="tg"><span class="p g">WebSockets (Live Notifications & Alerts)</span><span
+                              class="p g">LiveKit (WebRTC Video/Audio, 0ms Chat)</span><span class="p g">E-Imzo (Browser
+                              Crypto API, Xesh va Imzolash)</span><span class="p g">OneID</span><span class="p g">2FA /
+                              OTP</span></div>
+                    <b>UI & Optimallashtirish</b>
+                    <div class="tg"><span class="p">Tailwind CSS</span><span class="p">Ant Design (AntD)</span><span
+                              class="p">Custom UI Design</span><span class="p">Virtual Scroll</span><span
+                              class="p">Debounce / Throttle</span><span class="p">Image Compression</span></div>
+                    <b>Formalar & Hujjatlar</b>
+                    <div class="tg"><span class="p">React Hook Form</span><span class="p">Zod</span><span
+                              class="p">Yup</span><span class="p">Step Wizards (localStorage draft)</span><span
+                              class="p">PDF / Excel / CSV generatsiya va eksport</span></div>
+                    <b>BaaS & Vositalar</b>
+                    <div class="tg"><span class="p g">Supabase</span><span class="p g">Firebase</span><span
+                              class="p g">Git</span><span class="p g">GitHub</span><span class="p g">Vite</span></div>
+               </div>
+
+               <h2>Ish tajribasi</h2>
+               <div class="job">
+                    <h3>"Raqamli Nazorat" MChJ — Frontend Developer</h3><span class="dt">Mart 2026 – Oktabr 2026 (7 oy)
+                         · O'zbekiston (.uz)</span>
+               </div>
+               <div class="note">Davlat idoralari, sanoat fabrikalari va yirik korxonalar uchun 10 ta real tizimning
+                    Frontend arxitekturasi, UI/UX qismi va murakkab integratsiyalarini ishlab chiqdim (NDA sababli
+                    tizimlar yopiq serverlarda joylashgan):</div>
+
+               <div class="pr">
+                    <div class="ph">
+                         <h4>1. Raqamli Muloqot <code>raqamli-muloqot-frontend</code> — Idoralararo onlayn uchrashuvlar
+                              va majlislar platformasi</h4><span class="nda">🔒 NDA / .uz Corporate</span>
+                    </div>
+                    <div class="goal"><b>Maqsadi:</b> Davlat va korporativ rahbarlar hamda xodimlar uchun yopiq onlayn
+                         video-yig'ilishlarni tashkil etish tizimi.</div>
+                    <ul>
+                         <li><b>LiveKit</b> yordamida yuqori sifatli video-konferensiya va yig'ilish ichida <b>0ms
+                                   kechikishda</b> ishlovchi real-vaqt chat moduli integratsiya qilindi;</li>
+                         <li>Kompaniyaning <b>"Raqamli Passport"</b> tizimi orqali avtorizatsiya va rollar (Admin,
+                              Ishtirokchi) bo'yicha alohida interfeyslar (RBAC) qurildi;</li>
+                         <li>Custom Design asosida rejalashtirilgan majlislarning katta filtrli jadvallari hamda majlis
+                              yakunida har bir ishtirokchidan qatnashganlikni <b>elektron imzo</b> bilan tasdiqlash
+                              moduli yaratildi;</li>
+                         <li>Yangi majlisga chaqiruv yoki o'zgarishlar haqida sahifani yangilamasdan jonli bildirishnoma
+                              (push-notification) olish uchun <b>WebSocket</b> ulandi;</li>
+                         <li><b>React Query</b> orqali majlislar ro'yxati keshlandi, <b>Axios Interceptors</b> orqali
+                              token yangilanishi va <b>React Hook Form</b> bilan ko'p bosqichli formalar validatsiyasi
+                              yo'lga qo'yildi.</li>
+                    </ul>
+                    <div class="tg t"><span class="p">LiveKit</span><span class="p">WebSocket</span><span
+                              class="p">React Query</span><span class="p">Axios</span><span class="p">React Hook
+                              Form</span><span class="p g">RBAC</span></div>
+               </div>
+
+               <div class="pr">
+                    <div class="ph">
+                         <h4>2. SI-Assistent <code>si-assistent-frontend</code> — Sun'iy intellekt (LLM) asosidagi
+                              korporativ yordamchi platforma</h4><span class="nda">🔒 NDA / .uz Corporate</span>
+                    </div>
+                    <div class="goal"><b>Maqsadi:</b> Korxona xodimlariga me'yoriy hujjatlardan tez javob topish, tahlil
+                         qilish va mijozlarga avtomat javob berishda ko'maklashuvchi ichki AI paneli.</div>
+                    <ul>
+                         <li>AI javob berayotganda matn xuddi ChatGPT kabi so'zma-so'z oqim (<b>Streaming</b>) bo'lib
+                              kelishi uchun <b>Fetch ReadableStream / SSE</b> va WebSocket protokollari ulandi;</li>
+                         <li>AI o'rganishi (knowledge base) uchun <b>PDF, Word va Excel</b> hujjatlarni
+                              <b>drag-and-drop</b> orqali yuklash va ularning o'qitilish holatini kuzatish paneli
+                              yaratildi;
+                         </li>
+                         <li>Javob tarkibidagi kod bloklari va jadvallarni <b>Markdown (syntax highlighting)</b>
+                              formatida render qilish hamda suhbatlar tarixini keshlash tizimi qurildi;</li>
+                         <li>AI Admin (prompt va bilimlar sozlovchi), Tahlilchi va Xodim rollari hamda kunlik so'rovlar
+                              soni, javob tezligi va <b>tokenlar sarfi grafigi (Dashboard)</b> ishlab chiqildi.</li>
+                    </ul>
+                    <div class="tg t"><span class="p">SSE / ReadableStream</span><span class="p">WebSocket</span><span
+                              class="p">Markdown</span><span class="p">Drag & Drop</span><span
+                              class="p">Dashboard</span><span class="p g">RBAC</span></div>
+               </div>
+
+               <div class="pr">
+                    <div class="ph">
+                         <h4>3. Unusual Consumption & M-Gaz <code>unusual-consumption / m-gaz-frontend</code> — Gaz
+                              taqsimoti va noqonuniy sarf (anomaliya) monitoringi</h4><span class="nda">🔒 NDA / .uz
+                              Corporate</span>
+                    </div>
+                    <div class="goal"><b>Maqsadi:</b> Hududiy gaz shoxobchalari limitlarini nazorat qilish hamda
+                         me'yordan ortiq, shubhali yoki noqonuniy iste'mol (anomaliya) holatlarini aniqlash tizimi.
+                    </div>
+                    <ul>
+                         <li><b>E-Imzo</b> brauzer kriptografik moduli bilan to'liq integratsiya (kalitlarni o'qish,
+                              xesh olish va tekshiruv dalolatnomalarini elektron imzolash) amalga oshirildi;</li>
+                         <li>Shubhali sarf aniqlangan obyektlar, oldingi va hozirgi ko'rsatkichlar farqi foizlarda aks
+                              etgan <b>15+ ustunli tahliliy jadvallar</b> hamda joyiga chiqib o'rganilgach
+                              to'ldiriladigan <b>PDF dalolatnomalar (aktlar)</b> generatsiyasi qilindi;</li>
+                         <li>Ruxsatsiz ulanish yoki limitdan oshish aniqlanganda inspektor paneliga <b>ovozli va vizual
+                                   jonli ogohlantirish (WebSocket alert)</b> kelish tizimi yaratildi;</li>
+                         <li>Dashboardda <b>O'zbekiston xaritasi bo'yicha qizil zonalar (klasterlar)</b>, viloyat →
+                              tuman → shoxobcha kaskadli selectlar va React Query pagination/caching optimizatsiyasi
+                              qo'llandi; dalolatnoma rasmlarini serverga siqib (compress) yuklash yo'lga qo'yildi.</li>
+                    </ul>
+                    <div class="tg t"><span class="p">E-Imzo</span><span class="p">WebSocket Alerts</span><span
+                              class="p">React Query</span><span class="p">PDF Generation</span><span class="p">Image
+                              Compression</span><span class="p">Map Clusters</span></div>
+               </div>
+
+               <div class="pr">
+                    <div class="ph">
+                         <h4>4. DC-Management <code>dc-management-frontend</code> — Korporativ vazifalar (Task), KPI,
+                              Jarimalar va Server Monitoring tizimi</h4><span class="nda">🔒 NDA / .uz Corporate</span>
+                    </div>
+                    <div class="goal"><b>Maqsadi:</b> Onlayn rejimda xodimlarga vazifalar (task) berish, KPI pullari va
+                         jarimalarni qo'llash, loyihalarni boshqarish hamda tizim resurslarini kuzatish platformasi.
+                    </div>
+                    <ul>
+                         <li>Oyning har 4-sanasida avtomatik oylik hisoblash moduli, maxfiy ichki onlayn yig'ilishlar
+                              o'tkazish va har bir foydalanuvchi harakatini (<b>audit log</b>) kuzatib borish
+                              funksionalligi yaratildi;</li>
+                         <li>Admin, Menejer, Hisobchi, Nazoratchi va Xodim rollari uchun individual Dashboard va har bir
+                              xodim o'z KPI natijalarini jonli ko'rib borishi uchun shaxsiy statistika paneli qilindi;
+                         </li>
+                         <li>Barcha bo'limlar bo'yicha hisobotlarni <b>Excel / PDF / CSV</b> shaklida yuklab olish,
+                              <b>React Query polling + WebSocket</b> integratsiyasi va katta texnik parametrlarni
+                              <b>Debounce</b> orqali tezkor qidirish/filtrlash amalga oshirildi.
+                         </li>
+                    </ul>
+                    <div class="tg t"><span class="p">React Query Polling</span><span class="p">WebSocket</span><span
+                              class="p">Debounce</span><span class="p">Excel / PDF / CSV</span><span class="p">Audit
+                              Log</span><span class="p g">RBAC</span></div>
+               </div>
+
+               <div class="pr">
+                    <div class="ph">
+                         <h4>5. HGT-Attendance <code>hgt-attendance-frontend</code> — HR Davomat va FaceID / Turniket
+                              monitoring tizimi</h4><span class="nda">🔒 NDA / .uz Corporate</span>
+                    </div>
+                    <div class="goal"><b>Maqsadi:</b> Tashkilot xodimlarining ishga kelib-ketish vaqti, kechikishlari va
+                         ish soatlarini real vaqtda hisobga oluvchi tizim.</div>
+                    <ul>
+                         <li>Xodim <b>Turniket yoki Face ID</b> qurilmasidan o'tgan zahoti sahifani yangilamasdan
+                              davomat jadvalida yashil rang bilan belgilanishi uchun <b>WebSocket</b> jonli ulanishi
+                              qilindi;</li>
+                         <li>Oylik tabel hisobi (juda ko'p kunlar va xodimlar kesimida) qotib qolmasligi uchun jadval
+                              renderi <b>useMemo va Virtual Scroll</b> yordamida maksimal yengillashtirildi;</li>
+                         <li>Buxgalteriya uchun avtomatik oylik davomat hisobotini <b>Excel / PDF / CSV</b> formatda
+                              shakllantirish va HR Admin / Bo'lim rahbari / Xodim rollari (RBAC) yaratildi.</li>
+                    </ul>
+                    <div class="tg t"><span class="p">WebSocket</span><span class="p">Virtual Scroll</span><span
+                              class="p">useMemo</span><span class="p">Excel / PDF / CSV</span><span
+                              class="p g">RBAC</span></div>
+               </div>
+
+               <div class="pr">
+                    <div class="ph">
+                         <h4>6. Conver-Frontend <code>conver-frontend</code> — Logistika va yuk yetkazish kompaniyalari
+                              uchun CRM & Ombor tizimi</h4><span class="nda">🔒 NDA / .uz Corporate</span>
+                    </div>
+                    <div class="goal"><b>Maqsadi:</b> Turli logistika liniyalari, filiallar, omborlar va tovar
+                         kirim-chiqimlarini boshqarish hamda mijozlar oqimini (Funnel/Kanban) kuzatish platformasi.
+                    </div>
+                    <ul>
+                         <li><b>Dinamik RBAC (Granular Permissions):</b> SuperAdmin tomonidan yangi rol yaratish, har
+                              bir sahifa va har bir <b>action-tugma</b> uchun alohida ruxsatlar biriktirish yoki
+                              foydalanuvchining o'ziga individual ruxsat berish arxitekturasi qurildi;</li>
+                         <li>Har bir tashkilot va filial faqat o'ziga tegishli ombor va kirim-chiqim ma'lumotlarini
+                              ko'rishi hamda ularni <b>Excel / PDF / CSV</b> shaklida yuklab olishi ta'minlandi;</li>
+                         <li><b>Redux Toolkit</b> orqali murakkab filtr holatlari saqlandi, formalar <b>Yup / Zod</b>
+                              bilan qat'iy validatsiya qilindi.</li>
+                    </ul>
+                    <div class="tg t"><span class="p g">Granular RBAC</span><span class="p">Redux Toolkit</span><span
+                              class="p">Yup / Zod</span><span class="p">Kanban / Funnel</span><span class="p">Excel /
+                              PDF / CSV</span></div>
+               </div>
+
+               <div class="pr">
+                    <div class="ph">
+                         <h4>7. Gilam-ERP & Enterprise ERP <code>gilam-erp / erp-frontend</code> — Ishlab chiqarish,
+                              Moliya va Ombor ERP <i>(MVP / Jarayonda)</i></h4><span class="nda">🔒 NDA / .uz
+                              Corporate</span>
+                    </div>
+                    <div class="goal"><b>Maqsadi:</b> Gilam ishlab chiqarish fabrikasi (sexlar, metrajlar, tannarx)
+                         hamda korxonaning moliya, HR va xaridlar aylanmasini boshqarish tizimlari.</div>
+                    <ul>
+                         <li>Ishlab chiqarish metrajlari, tannarx va hisob-kitoblar (accrual retention) bo'yicha <b>15+
+                                   ustunli Virtual Scroll jadvallar</b> hamda mahsulot partiyasini hisoblovchi dinamik
+                              formulali custom hooklar yozildi;</li>
+                         <li>Omborga tovar kirishi yoki sexdan chiqishini real-vaqtda aks ettirish, buyurtma va
+                              nakladnoylarni <b>Excel / PDF / CSV</b> qilish, shartnoma va to'lov talabnomalarini
+                              tasdiqlash bosqichlari (<b>OneID / RBAC</b>) ishlab chiqildi.</li>
+                    </ul>
+                    <div class="tg t"><span class="p">Virtual Scroll</span><span class="p">Custom Hooks</span><span
+                              class="p">OneID</span><span class="p">Excel / PDF / CSV</span><span
+                              class="p g">RBAC</span></div>
+               </div>
+
+               <div class="pr">
+                    <div class="ph">
+                         <h4>8. Raqamli Sovchi <code>raqamli-sovchi-frontend</code> — Anketalar tahlili va moslikni
+                              aniqlash platformasi</h4><span class="nda">🔒 NDA / .uz Corporate</span>
+                    </div>
+                    <div class="goal"><b>Maqsadi:</b> Foydalanuvchilar anketalarini to'plash, moslik darajasini aniqlash
+                         va moderatorlar ishini tartibga solish tizimi.</div>
+                    <ul>
+                         <li>Foydalanuvchilar uchun 4–5 qadamdan iborat, rasm va hujjat yuklanadigan ko'p bosqichli
+                              forma (<b>Step Wizard</b>) qurildi; sahifa yopilib ketsa ma'lumot yo'qolmasligi uchun
+                              qoralamani <b>localStorage</b>da saqlash va har bir qadamni <b>React Hook Form + Zod</b>
+                              bilan tekshirish qo'llandi;</li>
+                         <li>Yuklanayotgan rasmlarni brauzerning o'zida siqib (<b>Image Compression</b>) serverga
+                              yuborish, moderatorlar uchun ko'p parametrli filtrlar va WebSocket xabarnomalar yaratildi.
+                         </li>
+                    </ul>
+                    <div class="tg t"><span class="p">Step Wizard</span><span class="p">React Hook Form</span><span
+                              class="p">Zod</span><span class="p">localStorage</span><span class="p">Image
+                              Compression</span><span class="p">WebSocket</span></div>
+               </div>
+
+               <div class="job" style="margin-top:12px">
+                    <h3>Frilans — Mustaqil Frontend Dasturchi</h3><span class="dt">Mart 2025 – Mart 2026 (1 yil)</span>
+               </div>
+               <ul style="margin:4px 0 0 16px">
+                    <li>Xususiy buyurtmachilar uchun 2 ta veb-loyihaning MVP va Frontend arxitekturasini (UI/UX, admin
+                         panellar, API integratsiyasi) React, TypeScript, Tailwind CSS hamda Supabase/Firebase yordamida
+                         noldan ishlab chiqish.</li>
+                    <li>Boshqaruv panellari uchun qayta ishlatiluvchi (reusable) komponentlar kutubxonasini yaratish,
+                         REST API bilan ishlash va responsive dizaynlar tayyorlash.</li>
+               </ul>
+
+               <div class="two">
+                    <div>
+                         <h2>Ta'lim</h2><b>"Pro Teach" IT o'quv markazi</b> (Qo'qon shahri)<br>Frontend Development
+                         yo'nalishi · 2023 – 2024
+                    </div>
+                    <div>
+                         <h2>Tillar</h2><b>O'zbek tili</b> — Ona tili (Erkin)<br><b>Ingliz tili</b> — Pre-Intermediate
+                         (texnik hujjatlarni / documentation o'qish va tushunish)
+                    </div>
+               </div>
+          </main>
+          <footer>🔒 Eslatma: Yuqorida keltirilgan korporativ va davlat (.uz) loyihalari NDA (Maxfiylik kelishuvi) bilan
+               himoyalanganligi sababli ochiq havolalar va login-parollar taqdim etilmaydi. Texnik suhbat (Interview)
+               jarayonida loyihalarning arxitekturasi, kod strukturasi va ishlash jarayonini jonli (Screen-share orqali)
+               namoyish etib berishim mumkin.</footer>
+     </div>
+</body>
+
+</html>
