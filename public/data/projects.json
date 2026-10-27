@@ -170,7 +170,7 @@
   {
     "id": 7,
     "title": "unusual-consumption-frontend",
-    "name": "noodatiy istemol",
+    "name": "Noodatiy istemol",
     "type": "Monitoring & Xarita Tahlili",
     "category": "monitoring",
     "desc": "Gaz sarfidagi me'yordan ortiq yoki noqonuniy iste'mol holatlarini aniqlash tizimi. O'zbekiston xaritasida qizil zonalar va klasterlar, 15+ ustunli murakkab qiyosiy tahlil jadvallari, ovozli va vizual jonli ogohlantirishlar (WebSocket Alert) hamda joyiga chiqib tekshirish aktlarini PDF qilish.",
@@ -179,17 +179,17 @@
     "status": "completed",
     "i18n": {
       "uz": {
-        "title": "noodatiy istemol",
+        "title": "Noodatiy istemol",
         "type": "Monitoring & Xarita Tahlili",
         "desc": "Gaz sarfidagi shubhali va noqonuniy iste'mol (anomaliya) monitoringi. Respublika va viloyat inspektorlari uchun interaktiv xarita, 15+ ustunli tahlil jadvallari, yangi noqonuniy holat aniqlanganda ovozli va vizual WebSocket ogohlantirishlar va dalolatnoma rasmlarini siqib yuklash."
       },
       "en": {
-        "title": "noodatiy istemol — Anomaly Monitoring & Map",
+        "title": "Noodatiy istemol — Anomaly Monitoring & Map",
         "type": "Monitoring & Map Analytics",
         "desc": "Utility gas anomaly detection system. Interactive GIS map showing high-risk clusters, 15+ column comparative analytical tables, audible & visual real-time WebSocket alerts upon anomaly detection, and automated PDF inspection reports with compressed photos."
       },
       "ru": {
-        "title": "noodatiy istemol — Мониторинг аномалий и карта",
+        "title": "Noodatiy istemol — Мониторинг аномалий и карта",
         "type": "Monitoring & Map Analytics",
         "desc": "Система мониторинга аномального и несанкционированного расхода газа: интерактивная карта с зонами риска, аналитические таблицы на 15+ колонок, звуковые и визуальные оповещения через WebSocket и генерация актов проверок в PDF."
       }

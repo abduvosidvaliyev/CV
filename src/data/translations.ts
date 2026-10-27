@@ -3,6 +3,7 @@ export const translations: any = {
   "uz": {
     "navbar": {
       "home": "Bosh sahifa",
+      "services": "Xizmatlar",
       "projects": "Loyihalar",
       "apps": "Ilovalar",
       "expertise": "Ekspertiza",
@@ -104,7 +105,30 @@ export const translations: any = {
           "ai_agent_coding": "Avtonom ko'p agentli ish oqimlari, kod generatsiyasi va avtomatlashtirish.",
           "prompt_engineering": "Katta til modellari (LLM) uchun chuqur kontekst va prompt muhandisligi.",
           "linux": "Server boshqaruvi, bash skriptlar va tizimli optimallashtirish.",
-          "nginx": "Yuqori unumdor teskari proksi (reverse proxy), SSL va yuk taqsimlash."
+          "nginx": "Yuqori unumdor teskari proksi (reverse proxy), SSL va yuk taqsimlash.",
+          "vite": "Zamonaviy, o'ta tezkor frontend yig'ish va ishlab chiqish muhiti (HMR, Rollup).",
+          "zod": "TypeScript-birinchi deklarativ sxema validatsiyasi va tiplar xavfsizligi.",
+          "supabase": "Ochiq kodli PostgreSQL, autentifikatsiya va real-vaqt ma'lumotlar bazasi.",
+          "html_css": "Semantik HTML5, zamonaviy CSS3, Flexbox, CSS Grid va moslashuvchan maketlar.",
+          "tanstack_query": "Server holatini boshqarish, asinxron so'rovlarni keshlash, pagination va avtomatik yangilash.",
+          "redux_toolkit": "Katta miqyosli ilovalar uchun standart, bashorat qilinadigan global holat (state) boshqaruvi.",
+          "websockets": "Server va mijoz o'rtasida ikki tomonlama real-vaqt ma'lumot almashinuvi va jonli bildirishnomalar.",
+          "interceptors": "Axios Interceptors yordamida tokenlarni avtomatik yangilash (Refresh Token) va tarmoq xatoliklarini nazorat qilish.",
+          "livekit": "LiveKit WebRTC: 0ms kechikishdagi video-majlislar, jonli audio/video va chat infratuzilmasi.",
+          "react_hook_form": "Yuqori unumdor, ortiqcha renderlarsiz ko'p bosqichli formalarni boshqarish kutubxonasi.",
+          "ant_design": "Korporativ darajadagi boy komponentlar to'plami va kengaytirilgan UI kutubxonasi.",
+          "tailwind": "Zamonaviy utilitar CSS freymvorki: tezkor stilizatsiya, responsive va toza dizayn tizimi.",
+          "one_id": "Yagona davlat identifikatsiya tizimi (OneID) orqali xavfsiz OAuth2 avtorizatsiyasi.",
+          "eimzo": "E-Imzo moduli yordamida brauzerda elektron hujjatlarni xesh olish va kriptografik imzolash.",
+          "javascript": "Zamonaviy ECMAScript (ES6+), asinxron dasturlash, event loop va brauzer API'lari.",
+          "erp_crm": "Yirik korxona va davlat xizmatlari uchun ko'p modulli, barqaror ERP & CRM boshqaruv arxitekturasi.",
+          "table_perf": "15+ ustunli murakkab analitik jadvallarni Virtual Scroll va xotira optimizatsiyasi orqali boshqarish.",
+          "ai_streaming": "Fetch ReadableStream va Server-Sent Events (SSE) orqali AI modellarining jonli token oqimini qabul qilish.",
+          "granular_rbac": "Rollar va individual huquqlar (Granular RBAC) asosida interfeys dinamik kirish boshqaruvi.",
+          "image_compress": "Brauzerda rasmlarni Canvas / Web Worker orqali serverga jo'natishdan oldin siqish va optimallashtirish.",
+          "export_tools": "Katta hajmdagi ma'lumotlarni mijoz tomonida dinamik ravishda Excel, PDF va CSV formatlariga eksport qilish.",
+          "design_system": "Kompaniya va loyihalar uchun yagona uslub, atomik reusable komponentlar va dizayn tokenlari.",
+          "web_performance": "Core Web Vitals, kodni bo'lish (code splitting), lazy loading va unumdorlik auditlari."
         }
       },
       "interests": {
@@ -250,12 +274,13 @@ export const translations: any = {
       "services": "Xizmatlar",
       "menu": "Menyu",
       "service_items": [
-        "Apple & Mobil ekotizim",
-        "Veb-platformalar & SaaS",
-        "Backend & API arxitekturasi",
-        "Telegram botlar & Avtomatlashtirish"
+        "Frontend & Core (React, Next.js, TS)",
+        "Murakkab ERP & CRM Tizimlari",
+        "Real-Time (WebSockets, LiveKit, SSE)",
+        "Lending Sahifalar & Veb-saytlar",
+        "E-Imzo & Granular RBAC Xavfsizlik"
       ],
-      "desc": "Dasturiy ta'minot muhandisi • iOS, Full-Stack, Telegram va Avtomatlashtirish"
+      "desc": "Frontend dasturchisi • React, Next.js, TypeScript va Murakkab Veb-Platformalar"
     },
     "expertise_page": {
       "title": "Texnik Ekspertiza",
@@ -325,7 +350,7 @@ export const translations: any = {
       "empty": "Hozircha ilovalar yo'q — tez orada tekshiring."
     },
     "contact_page": {
-      "title": "iOS Ilova Yaratamiz",
+      "title": "Veb Loyihangizni Yaratamiz",
       "form": {
         "name": "Ism",
         "name_placeholder": "Ism Familiya",
@@ -338,7 +363,7 @@ export const translations: any = {
         "service": "Xizmat turi",
         "service_placeholder": "Xizmat turini tanlang",
         "message": "Xabar",
-        "message_placeholder": "iOS loyihangiz haqida yozing...",
+        "message_placeholder": "Loyihangiz haqida yozing...",
         "submit": "Yuborish",
         "sending": "Yuborilmoqda...",
         "success": "Muvaffaqiyatli! Xabar yuborildi.",
@@ -373,6 +398,7 @@ export const translations: any = {
   "en": {
     "navbar": {
       "home": "Home",
+      "services": "Services",
       "projects": "Projects",
       "apps": "Apps",
       "expertise": "Expertise",
@@ -474,7 +500,30 @@ export const translations: any = {
           "ai_agent_coding": "Autonomous multi-agent workflows, code generation, and debugging.",
           "prompt_engineering": "Advanced LLM steering, context orchestration, and prompt design.",
           "linux": "Server administration, bash scripting, and system performance tuning.",
-          "nginx": "High-performance reverse proxy, SSL termination, and load balancing."
+          "nginx": "High-performance reverse proxy, SSL termination, and load balancing.",
+          "vite": "Next-generation, blazing fast frontend build tooling and development server (HMR, Rollup).",
+          "zod": "TypeScript-first declarative schema declaration and validation library.",
+          "supabase": "Open-source Firebase alternative: Postgres, real-time subscriptions, and auth.",
+          "html_css": "Semantic HTML5, modern CSS3, responsive layouts, Flexbox and CSS Grid.",
+          "tanstack_query": "Powerful asynchronous state management, smart caching, polling, and pagination.",
+          "redux_toolkit": "Standard, predictable state container for large-scale enterprise applications.",
+          "websockets": "Real-time, bidirectional event-driven communication and instant alert broadcasts.",
+          "interceptors": "Axios Interceptors for seamless silent token refreshes and centralized error handling.",
+          "livekit": "LiveKit WebRTC: 0ms real-time audio/video conferencing and data channels.",
+          "react_hook_form": "Performant, flexible form state management with effortless validation.",
+          "ant_design": "Comprehensive enterprise UI design system and rich component library.",
+          "tailwind": "Utility-first CSS framework for rapid and maintainable custom UI styling.",
+          "one_id": "Single Sign-On (SSO) authentication integrating national identity systems.",
+          "eimzo": "Browser cryptographic module for client-side digital document hashing and signing.",
+          "javascript": "Modern ECMAScript (ES6+), async patterns, event loop, and browser APIs.",
+          "erp_crm": "Scalable, resilient architecture for complex corporate ERP and CRM platforms.",
+          "table_perf": "Optimized multi-column analytical data grids using Virtual Scrolling and memoization.",
+          "ai_streaming": "Real-time AI response token streaming via Fetch ReadableStream and Server-Sent Events.",
+          "granular_rbac": "Dynamic role-based access control and fine-grained UI permission gates.",
+          "image_compress": "Client-side image compression using HTML5 Canvas & Web Workers prior to upload.",
+          "export_tools": "Client-side dynamic generation and export of analytical reports into Excel, PDF, and CSV.",
+          "design_system": "Consistent, atomic reusable design tokens and enterprise UI components.",
+          "web_performance": "Core Web Vitals optimization, code splitting, lazy loading, and rendering audits."
         }
       },
       "interests": {
@@ -670,12 +719,13 @@ export const translations: any = {
       "services": "Services",
       "menu": "Menu",
       "service_items": [
-        "Apple & Mobile Ecosystem",
-        "Web Platforms & SaaS",
-        "Backend & API Architecture",
-        "Telegram Bots & Automation"
+        "Frontend & Core (React, Next.js, TS)",
+        "Complex ERP & CRM Systems",
+        "Real-Time (WebSockets, LiveKit, SSE)",
+        "High-converting Landing Pages",
+        "E-Imzo & Granular RBAC Security"
       ],
-      "desc": "Software Engineer • iOS, Full-Stack, Telegram & Automation"
+      "desc": "Frontend Engineer • React, Next.js, TypeScript & Complex Web Platforms"
     },
     "expertise_page": {
       "title": "Texnik Ekspertiza",
@@ -745,7 +795,7 @@ export const translations: any = {
       "empty": "Hozircha ilovalar yo'q — tez orada tekshiring."
     },
     "contact_page": {
-      "title": "Let's Build Your iOS App",
+      "title": "Let's Build Your Web Application",
       "form": {
         "name": "Name",
         "name_placeholder": "John Doe",
@@ -758,7 +808,7 @@ export const translations: any = {
         "service": "Service Type",
         "service_placeholder": "Select a service",
         "message": "Message",
-        "message_placeholder": "Tell me about your iOS project...",
+        "message_placeholder": "Tell me about your project...",
         "submit": "Send Message",
         "sending": "Sending...",
         "success": "Success! Your message has been sent.",
@@ -793,6 +843,7 @@ export const translations: any = {
   "ru": {
     "navbar": {
       "home": "Главная",
+      "services": "Услуги",
       "projects": "Проекты",
       "apps": "Приложения",
       "expertise": "Экспертиза",
@@ -894,7 +945,30 @@ export const translations: any = {
           "ai_agent_coding": "Autonomous multi-agent workflows, code generation, and debugging.",
           "prompt_engineering": "Advanced LLM steering, context orchestration, and prompt design.",
           "linux": "Server administration, bash scripting, and system performance tuning.",
-          "nginx": "High-performance reverse proxy, SSL termination, and load balancing."
+          "nginx": "High-performance reverse proxy, SSL termination, and load balancing.",
+          "vite": "Сверхбыстрый современный инструмент сборки фронтенда и локальный сервер разработки (HMR, Rollup).",
+          "zod": "TypeScript-first библиотека декларативной валидации данных и типобезопасности схем.",
+          "supabase": "Open-source альтернатива Firebase: PostgreSQL база данных, авторизация и real-time подписки.",
+          "html_css": "Семантический HTML5, современный CSS3, адаптивная вёрстка, Flexbox и CSS Grid.",
+          "tanstack_query": "Асинхронное управление состоянием сервера, интеллектуальное кэширование, пагинация и поллинг.",
+          "redux_toolkit": "Стандартный надежный менеджер глобального состояния для масштабных корпоративных приложений.",
+          "websockets": "Двунаправленный обмен данными в реальном времени и моментальные системные уведомления.",
+          "interceptors": "Axios Interceptors для автоматического бесшовного обновления токенов (Refresh Token) и перехвата ошибок.",
+          "livekit": "LiveKit WebRTC: корпоративная инфраструктура для видеоконференций и аудиосвязи с нулевой задержкой.",
+          "react_hook_form": "Высокопроизводительное управление сложными многошаговыми формами без лишних рендеров.",
+          "ant_design": "Комплексная корпоративная UI дизайн-система и библиотека готовых компонентов.",
+          "tailwind": "Утилитарный CSS фреймворк для быстрой стилизации, адаптивности и чистой дизайн-системы.",
+          "one_id": "Интеграция единой системы идентификации (OneID) через безопасный протокол OAuth2.",
+          "eimzo": "Криптографический браузерный модуль E-Imzo для хэширования и электронной подписи документов.",
+          "javascript": "Современный ECMAScript (ES6+), асинхронное программирование, event loop и браузерные API.",
+          "erp_crm": "Масштабируемая фронтенд-архитектура для комплексных корпоративных ERP и CRM платформ.",
+          "table_perf": "Оптимизация аналитических таблиц с 15+ колонками через Virtual Scroll и мемоизацию.",
+          "ai_streaming": "Потоковый приём ответов AI в реальном времени через Fetch ReadableStream и Server-Sent Events.",
+          "granular_rbac": "Динамический гранулярный контроль доступа к интерфейсу на основе ролей и прав (RBAC).",
+          "image_compress": "Сжатие и оптимизация изображений на стороне клиента через Canvas / Web Workers перед отправкой.",
+          "export_tools": "Динамическая генерация и экспорт больших массивов аналитики в Excel, PDF и CSV на клиенте.",
+          "design_system": "Единая библиотека атомарных reusable-компонентов и дизайн-токенов для проектов.",
+          "web_performance": "Оптимизация Core Web Vitals, code splitting, lazy loading и непрерывный аудит производительности."
         }
       },
       "interests": {
@@ -1046,12 +1120,13 @@ export const translations: any = {
       "services": "Услуги",
       "menu": "Меню",
       "service_items": [
-        "Apple и мобильная экосистема",
-        "Веб-платформы и SaaS",
-        "Бэкенд и архитектура API",
-        "Telegram-боты и автоматизация"
+        "Frontend & Core (React, Next.js, TS)",
+        "Сложные ERP & CRM системы",
+        "Real-Time (WebSockets, LiveKit, SSE)",
+        "Landing Pages и веб-сайты",
+        "E-Imzo & Granular RBAC безопасность"
       ],
-      "desc": "Инженер-программист • iOS, Full-Stack, Telegram и автоматизация"
+      "desc": "Фронтенд-разработчик • React, Next.js, TypeScript и сложные веб-платформы"
     },
     "expertise_page": {
       "title": "Texnik Ekspertiza",
@@ -1121,7 +1196,7 @@ export const translations: any = {
       "empty": "Hozircha ilovalar yo'q — tez orada tekshiring."
     },
     "contact_page": {
-      "title": "Создадим ваше iOS приложение",
+      "title": "Создадим ваш веб-проект",
       "form": {
         "name": "Имя",
         "name_placeholder": "Иван Иванов",

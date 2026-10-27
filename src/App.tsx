@@ -8,6 +8,7 @@ import { ProjectsPage } from './pages/ProjectsPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogDetailPage } from './pages/BlogDetailPage';
 import { ContactPage } from './pages/ContactPage';
+import { ServicesPage } from './pages/ServicesPage';
 import { LegalPage } from './pages/LegalPage';
 import type { Locale } from './data/translations';
 
@@ -78,6 +79,7 @@ export function App() {
         {/* Main Routes under /:lang */}
         <Route path="/:lang" element={<AppLayout locale={locale} setLocale={handleLocaleChange} />}>
           <Route index element={<PageWithLocale Component={HomePage} />} />
+          <Route path="services" element={<PageWithLocale Component={ServicesPage} />} />
           <Route path="projects" element={<PageWithLocale Component={ProjectsPage} />} />
           <Route path="apps" element={<Navigate to="../projects" replace />} />
           <Route path="blog" element={<PageWithLocale Component={BlogPage} />} />

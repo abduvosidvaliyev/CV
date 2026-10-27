@@ -24,7 +24,7 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
   const pillRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const [selectedTool, setSelectedTool] = useState<ToolItem | null>(null);
-  const [stageWidth, setStageWidth] = useState(1120);
+  const [stageDimensions, setStageDimensions] = useState({ width: 1200, height: 640 });
 
   // Animation refs - smooth 60/120fps continuous rotation with dynamic speed lerping
   const rotationRef = useRef(0);
@@ -32,90 +32,108 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
   const isHoveringRef = useRef(false);
   const isVisibleRef = useRef(true);
   const selectedToolRef = useRef<ToolItem | null>(null);
-  const svgGroupRef = useRef<SVGGElement | null>(null);
+  const orbitPlaneRef = useRef<HTMLDivElement | null>(null);
   const nucleusRef = useRef<HTMLDivElement | null>(null);
   const prevZIndexRef = useRef<number[]>([]);
   const prevOpacityRef = useRef<number[]>([]);
+
+  // Drag interaction refs
+  const isDraggingRef = useRef(false);
+  const dragStartXRef = useRef(0);
+  const dragStartRotRef = useRef(0);
+  const dragDistanceRef = useRef(0);
 
   // Sync selectedTool to ref so RAF loop can read it without restarts
   useEffect(() => {
     selectedToolRef.current = selectedTool;
   }, [selectedTool]);
 
-  // Complete list of technologies arranged on concentric planetary orbits
+  // Clean, professional, and concise titles matching the original aesthetic
   const tools: ToolItem[] = useMemo(() => [
-    // --- Ring 0: Inner Orbit (8 items) ---
-    { id: 'vite', name: 'Vite', categoryKey: 'frontend_core', ring: 0, baseAngle: 0.2, docUrl: 'https://vitejs.dev' },
-    { id: 'axios', name: 'Axios / REST', categoryKey: 'state_api', ring: 0, baseAngle: 1.0, docUrl: 'https://axios-http.com' },
-    { id: 'zod', name: 'Zod / Yup', categoryKey: 'ui_security', ring: 0, baseAngle: 1.8, docUrl: 'https://zod.dev' },
-    { id: 'virtual_scroll', name: 'Virtual Scroll', categoryKey: 'ui_security', ring: 0, baseAngle: 2.6, docUrl: '#' },
-    { id: 'sse', name: 'SSE / Stream', categoryKey: 'state_api', ring: 0, baseAngle: 3.4, docUrl: '#' },
-    { id: 'git', name: 'Git / GitHub', categoryKey: 'ui_security', ring: 0, baseAngle: 4.2, docUrl: 'https://github.com' },
-    { id: 'supabase', name: 'Supabase', categoryKey: 'ui_security', ring: 0, baseAngle: 5.0, docUrl: 'https://supabase.com' },
-    { id: 'html_css', name: 'HTML5 & CSS3', categoryKey: 'frontend_core', ring: 0, baseAngle: 5.8, docUrl: '#' },
+    // --- Ring 0: Inner Orbit (6 items) ---
+    { id: 'vite', name: 'Vite', categoryKey: 'frontend_core', ring: 0, baseAngle: 0.0, docUrl: 'https://vitejs.dev' },
+    { id: 'rest_api', name: 'REST API', categoryKey: 'api_architecture', ring: 0, baseAngle: 1.05, docUrl: '#' },
+    { id: 'zod', name: 'Zod', categoryKey: 'ui_library', ring: 0, baseAngle: 2.09, docUrl: 'https://zod.dev' },
+    { id: 'git', name: 'Git / GitHub', categoryKey: 'version_control', ring: 0, baseAngle: 3.14, docUrl: 'https://github.com' },
+    { id: 'supabase', name: 'Supabase', categoryKey: 'database', ring: 0, baseAngle: 4.19, docUrl: 'https://supabase.com' },
+    { id: 'html_css', name: 'HTML5 & CSS3', categoryKey: 'frontend_core', ring: 0, baseAngle: 5.24, docUrl: '#' },
 
-    // --- Ring 1: Middle-Inner Orbit (10 items) ---
-    { id: 'typescript', name: 'TypeScript', categoryKey: 'frontend_core', ring: 1, baseAngle: 0.3, tinted: true, depth: 'near', docUrl: 'https://typescriptlang.org' },
-    { id: 'tanstack_query', name: 'TanStack Query', categoryKey: 'state_api', ring: 1, baseAngle: 0.9, tinted: true, depth: 'near', docUrl: 'https://tanstack.com/query' },
-    { id: 'redux_toolkit', name: 'Redux Toolkit', categoryKey: 'state_api', ring: 1, baseAngle: 1.5, docUrl: 'https://redux-toolkit.js.org' },
-    { id: 'websockets', name: 'WebSockets', categoryKey: 'state_api', ring: 1, baseAngle: 2.1, tinted: true, depth: 'near', docUrl: '#' },
-    { id: 'eimzo', name: 'E-Imzo (Kripto API)', categoryKey: 'ui_security', ring: 1, baseAngle: 2.8, tinted: true, depth: 'near', docUrl: '#' },
-    { id: 'granular_rbac', name: 'Granular RBAC', categoryKey: 'ui_security', ring: 1, baseAngle: 3.5, tinted: true, depth: 'near', docUrl: '#' },
-    { id: 'livekit', name: 'LiveKit (WebRTC)', categoryKey: 'state_api', ring: 1, baseAngle: 4.2, tinted: true, depth: 'near', docUrl: 'https://livekit.io' },
-    { id: 'react_hook_form', name: 'React Hook Form', categoryKey: 'ui_security', ring: 1, baseAngle: 4.8, docUrl: 'https://react-hook-form.com' },
-    { id: 'ant_design', name: 'Ant Design', categoryKey: 'ui_security', ring: 1, baseAngle: 5.4, docUrl: 'https://ant.design' },
-    { id: 'tailwind', name: 'Tailwind CSS', categoryKey: 'ui_security', ring: 1, baseAngle: 6.0, tinted: true, depth: 'near', docUrl: 'https://tailwindcss.com' },
+    // --- Ring 1: Middle-Inner Orbit (8 items) ---
+    { id: 'typescript', name: 'TypeScript', categoryKey: 'language', ring: 1, baseAngle: 0.35, tinted: true, depth: 'near', docUrl: 'https://typescriptlang.org' },
+    { id: 'tanstack_query', name: 'TanStack Query', categoryKey: 'api_architecture', ring: 1, baseAngle: 1.14, tinted: true, depth: 'near', docUrl: 'https://tanstack.com/query' },
+    { id: 'redux_toolkit', name: 'Redux Toolkit', categoryKey: 'api_architecture', ring: 1, baseAngle: 1.92, docUrl: 'https://redux-toolkit.js.org' },
+    { id: 'websockets', name: 'WebSockets', categoryKey: 'api_architecture', ring: 1, baseAngle: 2.71, tinted: true, depth: 'near', docUrl: '#' },
+    { id: 'interceptors', name: 'Axios Interceptors', categoryKey: 'api_architecture', ring: 1, baseAngle: 3.49, docUrl: '#' },
+    { id: 'livekit', name: 'LiveKit WebRTC', categoryKey: 'api_architecture', ring: 1, baseAngle: 4.28, tinted: true, depth: 'near', docUrl: 'https://livekit.io' },
+    { id: 'react_hook_form', name: 'React Hook Form', categoryKey: 'ui_library', ring: 1, baseAngle: 5.06, docUrl: 'https://react-hook-form.com' },
+    { id: 'ant_design', name: 'Ant Design', categoryKey: 'ui_framework', ring: 1, baseAngle: 5.85, docUrl: 'https://ant.design' },
 
-    // --- Ring 2: Middle-Outer Orbit (9 items) ---
-    { id: 'react', name: 'React.js', categoryKey: 'frontend_core', ring: 2, baseAngle: 0.35, tinted: true, depth: 'near', docUrl: 'https://react.dev' },
-    { id: 'nextjs', name: 'Next.js', categoryKey: 'frontend_core', ring: 2, baseAngle: 1.05, tinted: true, depth: 'near', docUrl: 'https://nextjs.org' },
-    { id: 'javascript', name: 'JavaScript (ES6+)', categoryKey: 'frontend_core', ring: 2, baseAngle: 1.75, depth: 'mid', docUrl: '#' },
-    { id: 'rest_api', name: 'REST API / Axios', categoryKey: 'state_api', ring: 2, baseAngle: 2.45, docUrl: '#' },
-    { id: 'one_id', name: 'OneID Avtorizatsiya', categoryKey: 'ui_security', ring: 2, baseAngle: 3.15, depth: 'near', docUrl: '#' },
-    { id: 'cursor', name: 'Cursor AI', categoryKey: 'ai_engineering', ring: 2, baseAngle: 3.85, tinted: true, depth: 'near', docUrl: 'https://cursor.com' },
-    { id: 'claude_code', name: 'Claude Code', categoryKey: 'ai_engineering', ring: 2, baseAngle: 4.55, tinted: true, depth: 'near', docUrl: 'https://anthropic.com' },
-    { id: 'interceptors', name: 'Axios Interceptors', categoryKey: 'state_api', ring: 2, baseAngle: 5.25, docUrl: '#' },
-    { id: 'step_wizard', name: 'Step Wizard Formalar', categoryKey: 'ui_security', ring: 2, baseAngle: 5.95, docUrl: '#' },
+    // --- Ring 2: Middle-Outer Orbit (8 items - Green Accent Orbit) ---
+    { id: 'react', name: 'React', categoryKey: 'ui_framework', ring: 2, baseAngle: 0.75, tinted: true, depth: 'near', docUrl: 'https://react.dev' },
+    { id: 'nextjs', name: 'Next.js', categoryKey: 'web_framework', ring: 2, baseAngle: 1.54, tinted: true, depth: 'near', docUrl: 'https://nextjs.org' },
+    { id: 'tailwind', name: 'Tailwind CSS', categoryKey: 'ui_framework', ring: 2, baseAngle: 2.32, tinted: true, depth: 'near', docUrl: 'https://tailwindcss.com' },
+    { id: 'one_id', name: 'OneID SSO', categoryKey: 'api_architecture', ring: 2, baseAngle: 3.11, depth: 'near', docUrl: '#' },
+    { id: 'cursor', name: 'Cursor AI', categoryKey: 'ai_engineering', ring: 2, baseAngle: 3.89, tinted: true, depth: 'near', docUrl: 'https://cursor.com' },
+    { id: 'claude_code', name: 'Claude Code', categoryKey: 'ai_engineering', ring: 2, baseAngle: 4.68, tinted: true, depth: 'near', docUrl: 'https://anthropic.com' },
+    { id: 'eimzo', name: 'E-Imzo Kripto', categoryKey: 'api_architecture', ring: 2, baseAngle: 5.46, tinted: true, depth: 'near', docUrl: '#' },
+    { id: 'javascript', name: 'JavaScript', categoryKey: 'language', ring: 2, baseAngle: 6.25, depth: 'mid', docUrl: '#' },
 
     // --- Ring 3: Outer Orbit (8 items) ---
-    { id: 'erp_crm', name: 'ERP & CRM Arxitekturasi', categoryKey: 'frontend_core', ring: 3, baseAngle: 0.25, tinted: true, depth: 'near', docUrl: '#' },
-    { id: 'table_perf', name: '15+ Ustunli Katta Jadvallar', categoryKey: 'ui_security', ring: 3, baseAngle: 1.05, tinted: true, depth: 'near', docUrl: '#' },
-    { id: 'realtime_alerts', name: 'WebSocket Jonli Xabarnomalar', categoryKey: 'state_api', ring: 3, baseAngle: 1.85, docUrl: '#' },
-    { id: 'ai_streaming', name: 'AI Streaming (SSE / Fetch)', categoryKey: 'state_api', ring: 3, baseAngle: 2.65, tinted: true, depth: 'near', docUrl: '#' },
-    { id: 'image_compress', name: 'Brauzerda Rasm Siqish', categoryKey: 'ui_security', ring: 3, baseAngle: 3.45, docUrl: '#' },
-    { id: 'export_tools', name: 'PDF / Excel / CSV Generatsiya', categoryKey: 'ui_security', ring: 3, baseAngle: 4.25, docUrl: '#' },
-    { id: 'reusable_components', name: 'Reusable Komponentlar', categoryKey: 'frontend_core', ring: 3, baseAngle: 5.05, tinted: true, depth: 'near', docUrl: '#' },
-    { id: 'responsive', name: 'Responsive & Unumdorlik', categoryKey: 'frontend_core', ring: 3, baseAngle: 5.85, docUrl: '#' },
+    { id: 'erp_crm', name: 'ERP & CRM', categoryKey: 'frontend_core', ring: 3, baseAngle: 0.15, tinted: true, depth: 'near', docUrl: '#' },
+    { id: 'table_perf', name: 'Virtual Tables', categoryKey: 'ui_library', ring: 3, baseAngle: 0.94, tinted: true, depth: 'near', docUrl: '#' },
+    { id: 'ai_streaming', name: 'AI Streaming', categoryKey: 'ai_engineering', ring: 3, baseAngle: 1.72, tinted: true, depth: 'near', docUrl: '#' },
+    { id: 'granular_rbac', name: 'Granular RBAC', categoryKey: 'api_architecture', ring: 3, baseAngle: 2.51, docUrl: '#' },
+    { id: 'image_compress', name: 'Image Compression', categoryKey: 'ui_library', ring: 3, baseAngle: 3.29, docUrl: '#' },
+    { id: 'export_tools', name: 'Excel / PDF Export', categoryKey: 'ui_library', ring: 3, baseAngle: 4.08, docUrl: '#' },
+    { id: 'design_system', name: 'Design System', categoryKey: 'ui_framework', ring: 3, baseAngle: 4.86, tinted: true, depth: 'near', docUrl: '#' },
+    { id: 'web_performance', name: 'Web Performance', categoryKey: 'frontend_core', ring: 3, baseAngle: 5.65, docUrl: '#' },
   ], []);
 
-  // Compute ring dimensions scaled proportionately:
-  // - Ring 0 (rx: 180, ry: 80): Never touches central nucleus star (clears central core by > 60px)
-  // - Ring 3 (rx: 415, ry: 186): Perfectly fits inside container width without getting cut off at screen edges
-  const scale = Math.min(1.0, Math.max(0.32, stageWidth / 1120));
+  // Spacious, elegant, and delicate planetary orbit dimensions matching the original reference
+  const scale = Math.min(1.0, Math.max(0.40, stageDimensions.width / 1200));
   const ringsConfig = useMemo(() => [
-    { rx: 180 * scale, ry: 80 * scale, stroke: 'rgba(255, 255, 255, 0.08)', dashed: true },
-    { rx: 255 * scale, ry: 114 * scale, stroke: 'rgba(255, 255, 255, 0.08)', dashed: false },
-    { rx: 335 * scale, ry: 150 * scale, stroke: 'rgba(190, 242, 100, 0.16)', dashed: false },
-    { rx: 415 * scale, ry: 186 * scale, stroke: 'rgba(255, 255, 255, 0.07)', dashed: false },
+    {
+      rx: 185 * scale,
+      ry: 82 * scale,
+      border: '1px dashed rgba(255, 255, 255, 0.13)',
+      boxShadow: 'none',
+    },
+    {
+      rx: 290 * scale,
+      ry: 128 * scale,
+      border: '1px solid rgba(255, 255, 255, 0.10)',
+      boxShadow: 'none',
+    },
+    {
+      rx: 400 * scale,
+      ry: 176 * scale,
+      border: '1px solid rgba(255, 255, 255, 0.10)',
+      boxShadow: 'none',
+    },
+    {
+      rx: 510 * scale,
+      ry: 224 * scale,
+      border: '1px solid rgba(255, 255, 255, 0.08)',
+      boxShadow: 'none',
+    },
   ], [scale]);
 
   // Update DOM transform for each pill directly (Zero React re-render lag)
-  // Optimized: Only mutate zIndex and opacity when actually changed to prevent DOM restacking thrash
   const updatePills = useCallback((rot: number) => {
-    // Dynamic swaying tilt: orbital plane oscillates between -7° and -17°
-    const currentTiltDeg = -12 + Math.sin(rot * 0.85) * 5.2;
+    // Dynamic swaying tilt: orbital plane oscillates naturally between -9.5° and -20.5°
+    const currentTiltDeg = -15 + Math.sin(rot * 1.1) * 5.2;
     const currentTiltRad = (currentTiltDeg * Math.PI) / 180;
     const cosTilt = Math.cos(currentTiltRad);
     const sinTilt = Math.sin(currentTiltRad);
 
-    // Synchronize SVG orbital paths tilt around (0, 0)
-    if (svgGroupRef.current) {
-      svgGroupRef.current.setAttribute('transform', `rotate(${currentTiltDeg.toFixed(2)})`);
+    // Synchronize CSS orbital paths plane tilt around (0, 0)
+    if (orbitPlaneRef.current) {
+      orbitPlaneRef.current.style.transform = `rotate(${currentTiltDeg.toFixed(2)}deg)`;
     }
 
-    // Reticle crosshair breathing rotation in exact dead center (0, 0)
+    // Keep center star / reticle crosshair perfectly upright and straight
     if (nucleusRef.current) {
-      nucleusRef.current.style.transform = `rotate(${(-currentTiltDeg * 0.4).toFixed(2)}deg)`;
+      nucleusRef.current.style.transform = 'none';
     }
 
     for (let i = 0; i < tools.length; i++) {
@@ -126,37 +144,43 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
       const ring = ringsConfig[item.ring];
       const angle = item.baseAngle + rot;
 
+      // Base unrotated coordinates along the ellipse
       const unrotX = ring.rx * Math.cos(angle);
-      const unrotY = ring.ry * Math.sin(angle);
+      // Subtle organic harmonic vertical undulation (tepaga-pastga og'ib kosmik suzish)
+      const verticalFloat = Math.sin(angle * 2 + rot * 1.3) * (7 * scale);
+      const unrotY = ring.ry * Math.sin(angle) + verticalFloat;
 
+      // Apply 3D tilted rotation matrix
       const x = unrotX * cosTilt - unrotY * sinTilt;
       const y = unrotX * sinTilt + unrotY * cosTilt;
 
+      // 3D perspective depth: closer pills are larger and fully visible, farther pills are smaller and dimmed
       const isFront = unrotY > 0;
-      const zIndex = isFront ? 20 + Math.round(unrotY / 10) : 6 + Math.round((unrotY + ring.ry) / 15);
-      const itemScale = isFront ? 1 : 0.93;
-      const opacity = isFront ? 1 : 0.85;
+      const depthRatio = Math.max(-1, Math.min(1, unrotY / ring.ry));
+      const zIndex = isFront ? 20 + Math.round(unrotY / 8) : 4 + Math.round((unrotY + ring.ry) / 14);
+      const itemScale = isFront ? 1.0 + depthRatio * 0.05 : 0.95 + depthRatio * 0.07;
+      const opacity = isFront ? 1.0 : Math.max(0.72, 0.86 + depthRatio * 0.14);
 
-      el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) translate(-50%, -50%) scale(${itemScale})`;
+      el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) translate(-50%, -50%) scale(${itemScale.toFixed(3)})`;
       if (prevZIndexRef.current[i] !== zIndex) {
         el.style.zIndex = `${zIndex}`;
         prevZIndexRef.current[i] = zIndex;
       }
       if (prevOpacityRef.current[i] !== opacity) {
-        el.style.opacity = `${opacity}`;
+        el.style.opacity = `${opacity.toFixed(2)}`;
         prevOpacityRef.current[i] = opacity;
       }
     }
-  }, [tools, ringsConfig]);
+  }, [tools, ringsConfig, scale]);
 
-  // ResizeObserver to dynamically and accurately measure container width
+  // ResizeObserver to dynamically and accurately measure container dimensions
   useEffect(() => {
     if (!containerRef.current) return;
     const ro = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        const width = entry.contentRect.width;
-        if (width > 0) {
-          setStageWidth(width);
+        const { width, height } = entry.contentRect;
+        if (width > 0 && height > 0) {
+          setStageDimensions({ width, height });
         }
       }
     });
@@ -165,7 +189,6 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
   }, []);
 
   // IntersectionObserver: Pause RAF loop completely when galaxy is scrolled out of viewport!
-  // Saves 100% CPU/GPU and makes page scrolling completely smooth
   useEffect(() => {
     if (!containerRef.current) return;
     const observer = new IntersectionObserver(
@@ -187,15 +210,41 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
     return () => window.removeEventListener('scroll', handleWindowScroll);
   }, []);
 
+  // Drag & Pointer handlers - smoothly support "hold to drag · tap for info"
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    if (e.button !== 0 && e.pointerType === 'mouse') return;
+    isDraggingRef.current = true;
+    dragStartXRef.current = e.clientX;
+    dragStartRotRef.current = rotationRef.current;
+    dragDistanceRef.current = 0;
+    try {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    } catch {
+      // Ignore
+    }
+  }, []);
+
   const handlePointerMove = useCallback((e: React.PointerEvent) => {
+    if (isDraggingRef.current) {
+      const deltaX = e.clientX - dragStartXRef.current;
+      dragDistanceRef.current = Math.abs(deltaX);
+      rotationRef.current = dragStartRotRef.current + (deltaX * 0.0035);
+      updatePills(rotationRef.current);
+      return;
+    }
     if (e.pointerType === 'touch') return;
     const target = e.target as HTMLElement;
     const isOverTool = target.closest('._tool_mtx51_167') !== null;
     isHoveringRef.current = isOverTool;
-  }, []);
+  }, [updatePills]);
 
-  const handlePointerLeave = useCallback(() => {
-    isHoveringRef.current = false;
+  const handlePointerUp = useCallback((e: React.PointerEvent) => {
+    isDraggingRef.current = false;
+    try {
+      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+    } catch {
+      // Ignore
+    }
   }, []);
 
   // Continuous 60fps/120fps animation loop with smooth speed lerping
@@ -206,7 +255,6 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
     const loop = (currentTime: number) => {
       animationFrameId = requestAnimationFrame(loop);
 
-      // Completely pause execution when section is out of viewport
       if (!isVisibleRef.current) {
         lastTime = currentTime;
         return;
@@ -215,18 +263,17 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
       const delta = Math.min((currentTime - lastTime) / 1000, 0.05);
       lastTime = currentTime;
 
-      // Target speed: 0 if popover is open or if user actively hovers a tool, 1 otherwise
-      const targetSpeed = (selectedToolRef.current !== null || isHoveringRef.current) ? 0 : 1;
+      const isPaused = selectedToolRef.current !== null || isHoveringRef.current || isDraggingRef.current;
+      const targetSpeed = isPaused ? 0 : 1;
       const lerpFactor = targetSpeed > speedRef.current ? 2.5 : 7.0;
       speedRef.current += (targetSpeed - speedRef.current) * Math.min(1, delta * lerpFactor);
 
-      if (speedRef.current > 0.001) {
-        rotationRef.current += delta * 0.055 * speedRef.current;
+      if (speedRef.current > 0.001 && !isDraggingRef.current) {
+        rotationRef.current += delta * 0.030 * speedRef.current;
         updatePills(rotationRef.current);
       }
     };
 
-    // Initial positioning
     updatePills(rotationRef.current);
     animationFrameId = requestAnimationFrame(loop);
 
@@ -234,34 +281,37 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
   }, [updatePills]);
 
   return (
-    <section className="_stackSection_132ah_271" style={{ position: 'relative' }}>
+    <section className="_stackSection_132ah_271" style={{ position: 'relative', overflowX: 'clip' }}>
       <div className="container">
-        {/* Head: Title */}
+        {/* Head: Title & Drag Hint */}
         <div className="_stackHead_132ah_276" style={{ marginBottom: '0.8rem' }}>
           <span className="monoLabel">
             — // STACK
           </span>
-          <span className="_stackHint_132ah_286" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-faint)' }}>
-            {stackData.hint || 'tap for info'}
+          <span className="_stackHint_132ah_286" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-faint)', letterSpacing: '0.04em' }}>
+            {stackData.hint || 'bosib turib suring · bosing — batafsil'}
           </span>
         </div>
 
-        {/* Orbit Galaxy Stage - Strictly bounded within container width (No full-width overflow) */}
+        {/* Orbit Galaxy Stage - Perfectly centered, spacious, and safe from edge clipping */}
         <div
           ref={containerRef}
           className="_galaxy_mtx51_6 _stackGalaxy_132ah_293"
           data-ready="true"
           data-live="true"
+          onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
-          onPointerLeave={handlePointerLeave}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
           style={{
             position: 'relative',
-            height: 'clamp(560px, 56vw, 680px)',
+            height: 'clamp(580px, 54vw, 720px)',
             width: '100%',
-            maxWidth: '1120px',
+            maxWidth: '1360px',
             margin: '0 auto',
-            overflow: 'hidden',
-            cursor: 'default',
+            overflow: 'visible',
+            cursor: isDraggingRef.current ? 'grabbing' : 'grab',
+            touchAction: 'none',
           }}
         >
           {/* Ambient Cosmic Center Glow */}
@@ -273,7 +323,7 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
           {/* =========================================================================
               UNIFIED CENTERED STAGE:
               Anchor: left: 50%, top: 50%.
-              All orbit lines, star, and pills originate from (0, 0).
+              All orbit lines, nucleus star, and pills originate precisely from (0, 0).
              ========================================================================= */}
           <div
             style={{
@@ -285,37 +335,40 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
               zIndex: 2,
             }}
           >
-            {/* 1. Concentric SVG Elliptical Orbit Paths */}
-            <svg
+            {/* 1. Visible Planetary Orbit Lines (Delicate & subtle matching the reference design) */}
+            <div
+              ref={orbitPlaneRef}
               style={{
                 position: 'absolute',
                 left: 0,
                 top: 0,
                 width: 0,
                 height: 0,
-                overflow: 'visible',
                 pointerEvents: 'none',
                 zIndex: 1,
               }}
             >
-              <g ref={svgGroupRef}>
-                {ringsConfig.map((ring, rIdx) => (
-                  <ellipse
-                    key={rIdx}
-                    cx={0}
-                    cy={0}
-                    rx={ring.rx}
-                    ry={ring.ry}
-                    fill="none"
-                    stroke={ring.stroke}
-                    strokeWidth={1.2}
-                    strokeDasharray={ring.dashed ? '4 8' : undefined}
-                  />
-                ))}
-              </g>
-            </svg>
+              {ringsConfig.map((ring, rIdx) => (
+                <div
+                  key={rIdx}
+                  style={{
+                    position: 'absolute',
+                    left: 0,
+                    top: 0,
+                    width: `${ring.rx * 2}px`,
+                    height: `${ring.ry * 2}px`,
+                    transform: 'translate(-50%, -50%)',
+                    borderRadius: '50%',
+                    border: ring.border,
+                    boxShadow: ring.boxShadow,
+                    pointerEvents: 'none',
+                    boxSizing: 'border-box',
+                  }}
+                />
+              ))}
+            </div>
 
-            {/* 2. Glowing Central Nucleus Star / Sun - Anchored firmly in Dead Center (0, 0) */}
+            {/* 2. Glowing Central Nucleus Star / Sun */}
             <div
               ref={nucleusRef}
               className="_nucleus_mtx51_59"
@@ -348,12 +401,15 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
                     aria-expanded={isSelected}
                     onClick={(e) => {
                       e.stopPropagation();
+                      if (dragDistanceRef.current > 6) return;
                       setSelectedTool(isSelected ? null : tool);
                     }}
                     style={{
                       position: 'absolute',
                       left: 0,
                       top: 0,
+                      translate: 'none', // Prevents double offset!
+                      margin: 0,
                       willChange: 'transform',
                       cursor: 'pointer',
                       zIndex: isSelected ? 50 : 10,
@@ -364,23 +420,34 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
                       style={{
                         cursor: 'pointer',
                         userSelect: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.55em',
+                        padding: '0.42em 0.96em',
+                        fontSize: 'clamp(12.5px, 1.2vw, 14.5px)',
+                        fontWeight: tool.tinted ? 600 : 500,
                         border: isSelected
                           ? '1px solid var(--accent)'
                           : tool.tinted
-                          ? '1px solid #bef2647a'
-                          : '1px solid rgba(255, 255, 255, 0.16)',
-                        background: tool.tinted ? '#101810f2' : '#0d1118f5',
-                        color: tool.tinted ? 'var(--accent)' : 'var(--text)',
+                          ? '1px solid rgba(190, 242, 100, 0.48)'
+                          : '1px solid rgba(255, 255, 255, 0.14)',
+                        background: tool.tinted ? '#0f1710f4' : '#0c1016f4',
+                        color: tool.tinted ? 'var(--accent)' : 'rgba(255, 255, 255, 0.88)',
                         boxShadow: tool.tinted
-                          ? '0 6px 22px rgba(0, 0, 0, 0.55), 0 0 16px rgba(190, 242, 100, 0.2)'
-                          : '0 4px 18px rgba(0, 0, 0, 0.5)',
-                        backdropFilter: 'none',
-                        WebkitBackdropFilter: 'none',
+                          ? '0 4px 18px rgba(0, 0, 0, 0.55), 0 0 14px rgba(190, 242, 100, 0.18)'
+                          : '0 4px 14px rgba(0, 0, 0, 0.48)',
+                        borderRadius: '999px',
+                        whiteSpace: 'nowrap',
+                        lineHeight: 1.25,
+                        transition: 'border-color .2s ease, box-shadow .2s ease, transform .2s ease',
                       }}
                     >
                       <span
                         className="_star_mtx51_313"
                         style={{
+                          width: '6px',
+                          height: '6px',
+                          borderRadius: '50%',
                           backgroundColor: tool.tinted ? 'var(--accent)' : '#fff',
                           boxShadow: tool.tinted ? '0 0 8px var(--accent)' : '0 0 6px rgba(255, 255, 255, 0.7)',
                         }}
@@ -403,7 +470,7 @@ export const TechGalaxy: React.FC<TechGalaxyProps> = ({ currentLocale }) => {
                 top: '50%',
                 transform: 'translate(-50%, -50%)',
                 zIndex: 70,
-                maxWidth: '380px',
+                maxWidth: '400px',
                 width: '90%',
                 background: '#0d1118fa',
                 border: '1px solid var(--border-accent)',

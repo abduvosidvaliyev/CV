@@ -19,29 +19,55 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLocale }) => {
     name: '',
     email: '',
     telegram: '',
-    service: 'ios_apple',
+    service: 'frontend_web',
     message: '',
   });
 
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        telegram: '',
-        service: 'ios_apple',
-        message: '',
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/valiyevabduvosid6761@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Ism: formData.name,
+          Email: formData.email,
+          Telegram: formData.telegram || 'Ko\'rsatilmagan',
+          Xizmat_turi: serviceOptions.find(o => o.value === formData.service)?.label || formData.service,
+          Xabar: formData.message,
+          _subject: `Yangi xabar portfolio orqali: ${formData.name}`,
+          _template: 'table'
+        })
       });
-    }, 1000);
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          telegram: '',
+          service: 'frontend_web',
+          message: '',
+        });
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
   };
 
   const serviceOptions: SelectOption[] = [
-    { value: 'frontend_web', label: form.services?.frontend_web || 'Frontend va zamonaviy veb-ilovalar (React, Next.js, TS)' },
+    { value: 'frontend_web', label: form.services?.frontend_web || 'Frontend va zamonaviy veb-ilovalar (React, Next.js)' },
+    { value: 'landing_pages', label: form.services?.landing_pages || 'Lending page va zamonaviy veb-saytlar' },
     { value: 'erp_crm', label: 'Murakkab ERP, CRM va boshqaruv panellari' },
     { value: 'realtime_systems', label: 'Real-vaqt tizimlari (WebSockets, WebRTC, SSE)' },
     { value: 'eimzo_security', label: 'E-Imzo integratsiyasi va Granular RBAC xavfsizlik' },
@@ -185,7 +211,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ currentLocale }) => {
                 <textarea
                   required
                   rows={4}
-                  placeholder={currentLocale === 'en' ? 'Tell me about your iOS project...' : (form.message_placeholder || 'iOS loyihangiz haqida yozing...')}
+                  placeholder={currentLocale === 'en' ? 'Tell me about your project...' : (currentLocale === 'ru' ? 'Напишите о вашем проекте...' : (form.message_placeholder || 'Loyihangiz haqida yozing...'))}
                   className="_textarea_kh7bg_67"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}

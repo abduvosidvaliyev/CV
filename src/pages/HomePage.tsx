@@ -9,7 +9,10 @@ import {
   Layers,
   Video,
   ShieldCheck,
-  FileSpreadsheet
+  FileSpreadsheet,
+  GitBranch,
+  MessageSquareCode,
+  TrendingUp
 } from 'lucide-react';
 import { WireframeMesh } from '../components/WireframeMesh';
 import { TypewriterText } from '../components/TypewriterText';
@@ -275,7 +278,7 @@ export const HomePage: React.FC<HomePageProps> = ({ currentLocale }) => {
               },
               {
                 id: 'unusual-consumption',
-                name: 'noodatiy istemol',
+                name: 'Noodatiy istemol',
                 category: 'Monitoring & Interaktiv Xarita',
                 tagline: currentLocale === 'en'
                   ? 'Gas anomaly detection: 15+ column analytical tables, Uzbekistan risk zone map, audible/visual WebSocket alerts.'
@@ -594,6 +597,97 @@ export const HomePage: React.FC<HomePageProps> = ({ currentLocale }) => {
               </div>
             </SpotlightTiltCard>
           </div>
+        </div>
+      </section>
+
+      {/* 6. NOW LEARNING SECTION (Screenshot 5) */}
+      <section className="_section_132ah_299">
+        <div className="container">
+          <div className="_sectionHead_132ah_319">
+            <div>
+              <span className="monoLabel">— // NOW LEARNING</span>
+              <h2 className="_sectionTitle_132ah_328">
+                {home.learning?.title || "Hozir o'rganayapman"}
+              </h2>
+            </div>
+            <p className="_learningNote_132ah_679">
+              {home.learning?.note || "Ochiq o'rganaman — qaydlarimni darslar ko'rinishida yozib boraman."}
+            </p>
+          </div>
+
+          <ul className="_learningGrid_132ah_687">
+            {/* DevOps */}
+            <li>
+              <SpotlightTiltCard disableTilt={true}>
+                <div className="_learningCard_132ah_694">
+                  <div className="_learningTop_132ah_706">
+                    <div className="_cardIcon_132ah_622">
+                      <GitBranch size={20} />
+                    </div>
+                    <span className="_learningPulse_132ah_717" />
+                  </div>
+                  <h3 className="_learningTitle_132ah_725">
+                    {home.learning?.items?.devops?.title || 'DevOps'}
+                  </h3>
+                  <p className="_learningText_132ah_732">
+                    {home.learning?.items?.devops?.text || "CI/CD pipeline'lar, konteynerlar va deploy — kodni ishonchli yetkazib berish."}
+                  </p>
+                  <span className="_learningLink_132ah_738">
+                    <span>{home.learning?.open || 'Darsni ochish'}</span>
+                    <ArrowRight size={13} />
+                  </span>
+                </div>
+              </SpotlightTiltCard>
+            </li>
+
+            {/* Prompt engineering */}
+            <li>
+              <SpotlightTiltCard disableTilt={true}>
+                <div className="_learningCard_132ah_694">
+                  <div className="_learningTop_132ah_706">
+                    <div className="_cardIcon_132ah_622">
+                      <MessageSquareCode size={20} />
+                    </div>
+                    <span className="_learningPulse_132ah_717" />
+                  </div>
+                  <h3 className="_learningTitle_132ah_725">
+                    {home.learning?.items?.prompt?.title || 'Prompt engineering'}
+                  </h3>
+                  <p className="_learningText_132ah_732">
+                    {home.learning?.items?.prompt?.text || "Ishonchli va foydali natija olish uchun AI modellariga aniq ko'rsatmalar yozish."}
+                  </p>
+                  <span className="_learningLink_132ah_738" style={{ color: 'var(--accent)' }}>
+                    <span>{home.learning?.open || 'Darsni ochish'}</span>
+                    <ArrowRight size={13} />
+                  </span>
+                </div>
+              </SpotlightTiltCard>
+            </li>
+
+            {/* Growth engineering */}
+            <li>
+              <SpotlightTiltCard disableTilt={true}>
+                <div className="_learningCard_132ah_694">
+                  <div className="_learningTop_132ah_706">
+                    <div className="_cardIcon_132ah_622">
+                      <TrendingUp size={20} />
+                    </div>
+                    <span className="_learningPulse_132ah_717" />
+                  </div>
+                  <h3 className="_learningTitle_132ah_725">
+                    {home.learning?.items?.growth?.title || 'Growth engineering'}
+                  </h3>
+                  <p className="_learningText_132ah_732">
+                    {home.learning?.items?.growth?.text || "Tajribalar, analitika va onboarding — mahsulot o'sishiga muhandislik yondashuvi."}
+                  </p>
+                  <span className="_learningLink_132ah_738">
+                    <span>{home.learning?.open || 'Darsni ochish'}</span>
+                    <ArrowRight size={13} />
+                  </span>
+                </div>
+              </SpotlightTiltCard>
+            </li>
+          </ul>
         </div>
       </section>
 

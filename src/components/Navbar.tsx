@@ -51,6 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
 
   const navLinks = [
     { to: `/${activeLocale}`, label: t.home, end: true },
+    { to: `/${activeLocale}/services`, label: t.services || (activeLocale === 'en' ? 'Services' : (activeLocale === 'ru' ? 'Услуги' : 'Xizmatlar')) },
     { to: `/${activeLocale}/projects`, label: t.projects },
     { to: `/${activeLocale}/contact`, label: t.contact },
   ];
@@ -78,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
       <div className="container _inner_1welw_23">
         {/* Brand Logo */}
         <NavLink to={`/${activeLocale}`} className="_logo_1welw_32">
-          Abduvosid<span className="_logoAccent_1welw_42">Dev</span>
+          abduvosid<span className="_logoAccent_1welw_42">.dev</span>
           <span className="_logoCursor_1welw_46" />
         </NavLink>
 
